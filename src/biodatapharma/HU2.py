@@ -1,104 +1,93 @@
 import re
-import time
-
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+from biodatapharma.constants import DATA_DIR
 
-# ----------------------------------------------------------------------
-# Configuración
-# ----------------------------------------------------------------------
-ENTRADA = "schizofrenia_drugs.csv"          # salida de la HU-1
-SALIDA = "HU2_esquizofrenia.xlsx"
-COLUMNA_URL = "url_ficha_tecnica"
+
+INPUT_NAME = "hu1_esquizofrenia.xlsx"          
+OUTPUT_NAME = "hu2_esquizofrenia.xlsx"
+COLUMN_URL = "url_ficha_tecnica"
 HEADERS = {"User-Agent": "BIODATAPHARMA/1.0 (proyecto academico ICAI)"}
 
+def words_section(soup: BeautifulSoup, section: str)->int:
+    """Obtiene el número de palabras de una sección dado un html en formato BeautifulSoup.
 
-# ----------------------------------------------------------------------
-# Métricas: cada una recibe el HTML ya parseado (soup)
-# ----------------------------------------------------------------------
-def palabras_seccion_4_4(soup):
-    """Volumen informativo de seguridad: nº de palabras de la sección 4.4.
+    Args:
+        soup: HTML formato BeautifulSoup.
+        section: String con el número de sección para la que se van a contar las palabras.
 
-    En las fichas de CIMA cada sección empieza con <h2 id="4.4">, <h2 id="4.5">...
-    Recorremos los elementos que van después del título 4.4 hasta el siguiente <h2>.
-    El título de la sección no se cuenta.
+    Returns:
+        Un entero con el número de palabras contadas.
     """
-    titulo = soup.find("h2", id="4.4")
-    if titulo is None:
-        return None                      # ficha sin sección 4.4 → NaN
+    
+    section_title = soup.find(id=section)
+    if section_title is None:
+        return None                      
 
-    texto = ""
-    for elemento in titulo.find_next_siblings():
-        if elemento.name == "h2":        # hemos llegado a la 4.5 → paramos
-            break
-        texto += " " + elemento.get_text(" ")
+    text = ""
+    for element in section_title.find_next_siblings():
+        text =  element.get_text(" ")
+        if element.name != "p":   
+            return  len(re.findall(r"\w+", text))
+        text += " " + element.get_text(" ")
 
-    # Palabra = secuencia de letras y/o números (ignora signos de puntuación sueltos)
-    return len(re.findall(r"\w+", texto))
+def tables_number(soup: BeautifulSoup)-> int:
+    """Obtiene el número de tablas de un html en formato BeautifulSoup.
 
+    Args:
+        soup: HTML formato BeautifulSoup.
 
-def numero_tablas(soup):
-    """Complejidad del desglose clínico: nº de etiquetas <table> en todo el HTML."""
+    Returns:
+        Un entero con el número de tablas encontradas.
+    """
     return len(soup.find_all("table"))
 
 
-def numero_grave(soup):
-    """Indicador de riesgo severo: nº de veces que aparece "grave" o "graves".
+def grave_occurences(soup: BeautifulSoup)-> int:
+    """Obtiene el número de ocurrencias de la palabra grave/graves de un html en formato BeautifulSoup.
 
-    \\b = límite de palabra → NO cuenta "gravedad" ni "gravemente".
-    re.IGNORECASE → cuenta también "Grave" y "GRAVES".
+    Args:
+        soup: HTML formato BeautifulSoup.
+
+    Returns:
+        Un entero con el número de ocurrencias de la palabra grave/graves encontradas.
     """
     texto = soup.get_text(" ")
     return len(re.findall(r"\bgraves?\b", texto, flags=re.IGNORECASE))
 
 
-def calcular_metricas(html):
+def calcular_metricas(html: str) -> dict:
+    """Hace uso de una serie de funciones previamente definidas para extraer unas métricas dado un html.
+
+    Args:
+        html: HTML crudo.
+
+    Returns:
+        Un diccionario con el número de palabras en la sección dada, número de tablas y número de ocurrencias de la palabra grave/graves.
+    """
+    
     soup = BeautifulSoup(html, "lxml")
-    for etiqueta in soup(["script", "style"]):   # quitamos código JS/CSS, no es texto
+    for etiqueta in soup(["script", "style"]):   
         etiqueta.decompose()
     return {
-        "palabras_seccion_4_4": palabras_seccion_4_4(soup),
-        "num_tablas": numero_tablas(soup),
-        "num_grave": numero_grave(soup),
+        "palabras_seccion_4_4": words_section(soup, section="4.4"),
+        "num_tablas": tables_number(soup),
+        "num_grave": grave_occurences(soup),
     }
 
+def main() -> None:
+    df = pd.read_excel(DATA_DIR / INPUT_NAME)
+    rows=[]
+    for url in df[COLUMN_URL]:
+        print(url)
+        resp = requests.get(url, headers=HEADERS)
+        resp.raise_for_status()
+        rows.append(calcular_metricas(resp.text))
 
-# ----------------------------------------------------------------------
-# Programa principal
-# ----------------------------------------------------------------------
-if __name__ == "__main__":
-    # 1. Leemos la salida de la HU-1
-    df = pd.read_csv(ENTRADA)
-    print("Medicamentos a procesar:", len(df))
-
-    # 2. Descargamos cada ficha y calculamos las métricas
-    filas = []
-    for i, (nregistro, url) in enumerate(zip(df["nregistro"], df[COLUMNA_URL]), start=1):
-        fila = {"nregistro": nregistro,
-                "palabras_seccion_4_4": None, "num_tablas": None, "num_grave": None}
-
-        if pd.notna(url):
-            try:
-                respuesta = requests.get(url, headers=HEADERS, timeout=30)
-                respuesta.raise_for_status()
-                fila.update(calcular_metricas(respuesta.content))
-            except Exception as e:
-                print("Error con", nregistro, "→", e)
-
-        filas.append(fila)
-        if i % 50 == 0:
-            print("Llevamos", i, "de", len(df))
-        time.sleep(0.2)                  # pequeña pausa para no saturar la web de la AEMPS
-
-    metricas = pd.DataFrame(filas)
-
-    # 3. Resumen para comprobar que todo ha ido bien
-    print("\nFichas procesadas:", metricas["num_tablas"].notna().sum(), "de", len(metricas))
-    print("Sin sección 4.4:", metricas["palabras_seccion_4_4"].isna().sum())
-    print(metricas[["palabras_seccion_4_4", "num_tablas", "num_grave"]].describe())
-
-    # 4. Unimos las 3 métricas a los datos de la HU-1 y guardamos
-    resultado = df.merge(metricas, on="nregistro", how="left")
-    resultado.to_excel(SALIDA, index=False)
-    print("\nGuardado en", SALIDA, "→", resultado.shape)
+    metricas = pd.DataFrame(rows, index=df.index)
+    df = df.join(metricas)
+    df.to_excel(DATA_DIR / OUTPUT_NAME, index=False)    
+    
+if  __name__ == "__main__":
+    main()   
