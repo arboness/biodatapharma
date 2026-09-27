@@ -5,7 +5,7 @@
 El proyecto se ha creado con el gestor de paquetes ``uv``. Existen **tres** directorios prinicpales:
     - ``src/biodatapharma/``: Contiene los scripts de python, divididos por **Historia de Usuario**.
     - ``data/``: Contiene todos los ficheros ``.xlsx`` y ``.csv`` del proyecto.
-    - ``docs/``: Contiene las instrucciones del proyecto tanto en formato ``.pdf`` como en formato ``.md``.
+    - ``docs/``: Contiene las instrucciones del proyecto tanto en formato ``.pdf`` como en formato ``.md`` y los documentos de los sprints.
 
 ## Manual de usuario
 
