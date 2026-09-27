@@ -24,6 +24,8 @@ def main()->None:
         right_on="Código Nacional",
         how="left",
     )
+    
+    df_HU3 = df_HU3.drop(columns=['Código Nacional'])
 
     df_HU3.to_excel(DATA_DIR / "hu3_esquizofrenia.xlsx", index=False)   
     
