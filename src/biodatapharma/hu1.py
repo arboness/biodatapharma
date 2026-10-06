@@ -30,7 +30,7 @@ def pages_number(disease: str) -> int:
     page_size = datos.get("tamanioPagina")
     nregisters = datos.get("totalFilas")
     total_pages = math.ceil(nregisters/page_size)
-    
+    print(nregisters)
     return total_pages
 
 
@@ -78,12 +78,16 @@ def drugs_to_xlsx(drug_register_numbers: list[str])->None:
         drug_info_dicts.append(extract_drug_details(register_number))
 
     df = pd.DataFrame(drug_info_dicts)
-    df.to_excel(DATA_DIR / f"hu1_{DISEASE_NAME}.xlsx", index=False)    
+    df.to_excel(DATA_DIR / f"hu1_{DISEASE_NAME}.xlsx", index=False)  
+    
+    print(df.isna().sum()) 
 
      
 def main() -> None:
     nrecords = extract_register_numbers(disease=DISEASE_NAME)
-    drugs_to_xlsx(nrecords, disease=DISEASE_NAME)
+    drugs_to_xlsx(nrecords)
+    print(len(nrecords))
+    
 
 
 if __name__ == "__main__":
