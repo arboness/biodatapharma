@@ -89,7 +89,8 @@ def extract_drug_details(nrecord: str) -> dict:
         "nombre": data.get("nombre", None),
         "pactivos": data.get("pactivos", None),
         "labtitular": data.get("labtitular", None),
-        "labcomercializador": data.get("labcomercializador"),
+        "labcomercializador": data.get("" \
+        ""),
         "cn": data.get("presentaciones", None)[0].get("cn", None),
         "dosis": data.get("dosis", None),
         "forma_farmaceutica_simplificada": (data.get("formaFarmaceuticaSimplificada") or {}).get("nombre"),
