@@ -66,27 +66,44 @@ df["pvp"] = df["pvp"].fillna(df["pvp"].median())
 
 # 5. Dosis: de texto a número en mg (o mg/ml)
 def extraer_dosis(texto):
-    """Devuelve la dosis en mg (o mg/ml si es una concentración)."""
+    """Devuelve la dosis en mg (o mg/ml si es una concentración, por ello se multiplica por 10, ya que
+        4 gramos / 100ml = 4%, que queremos pasarlo a miligramos por ml, luego hay que multiplicar 4 por 1000
+        y como son 100ml, hay que dividir entre 100. Multiplicar por 1000 y dividir entre 100 es igual a multiplicar por 10. 
+    )."""
     texto = texto.lower().replace(",", ".")
-
+    numeros = []
+    # única fila: Zyprexa 10 mg
     if "desconocida" in texto:
         return 10.0
 
-    numeros = [float(n) for n in re.findall(r"\d+\.?\d*", texto)]
-
+    # \d es un número. Un número o más, seguidos de un punto o no con 0 o más números después del punto
+    for n in re.findall(r"\d+\.?\d*", texto):
+        numeros.append(float(n))
+    #g/100ml, hay que multiplicar por 1000 y dividir entre 100 -> multiplicar por 10
     if "%" in texto:
         return numeros[0] * 10
+    
+    # Caso de haloperidol, que aparece la concentración por 100ml, pero en realidad son 200mg/100 ml 
+    # Dividimos 200 entre 100 para dar la concentración por 1ml
     if "100 ml" in texto:
         return numeros[0] / 100
+    
+    # No está ni en % ni en 100ml, se devuelve el número
     if "ml" in texto:
         return numeros[0]
+    
+    # Son varias concentraciones, se devuelve la suma de ellas
     if "+" in texto or len(numeros) > 1:
         return sum(numeros)
+    
+    # Si no, devuelve el primer número (único)
     return numeros[0]
 
 
 df["dosis_mg"] = df["dosis"].apply(extraer_dosis)
+
 df["dosis_es_concentracion"] = df["dosis"].str.lower().str.contains("ml|%").astype(int)
+
 df = df.drop(columns=["dosis"])
 
 # 6. Categóricas: categorías poco frecuentes a OTROS
