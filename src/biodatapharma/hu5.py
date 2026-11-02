@@ -16,10 +16,7 @@ RAIZ = Path(__file__).resolve().parents[2]
 RUTA_DATOS = RAIZ / "data" / "hu4_esquizofrenia_limpio.csv"
 RUTA_SALIDA = RAIZ / "data" / "hu5_clusters.csv"
 
-
-DROP_COLUMNS = ["nregistro"]
 DROP_COLUMNS_TLD = ["nregistro", "tld_unknown"]
-
 
 NUM_CLUSTERS = 5
 N_INIT = 10
