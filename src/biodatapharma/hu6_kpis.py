@@ -2,7 +2,7 @@ import mysql.connector
 import os
 from dotenv import load_dotenv
 
-SQL_PATH = ""
+SQL_PATH = "src/biodatapharma/hu6_kpis.sql"
 
 def cargar_credenciales()->dict[str,str]:
     load_dotenv() 
