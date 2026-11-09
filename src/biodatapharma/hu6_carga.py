@@ -2,7 +2,7 @@ import sys
 import mysql.connector
 import pandas as pd
 
-from biodatapharma.hu6_aux_functions import cargar_credenciales, conectar_sql
+from biodatapharma.hu6_aux_functions import cargar_credenciales, conectar_sql, nombre_base_de_datos
 
 CSV_PATH = "data/hu5_completo_v4.csv"
 
@@ -31,10 +31,13 @@ def main() -> int:
         cols = ", ".join(columnas)
         placeholders = ", ".join(["%s"] * len(columnas))
         insert_query = f"INSERT INTO medicamentos ({cols}) VALUES ({placeholders})"
-
+        db = nombre_base_de_datos()
+        if db is None:
+            raise mysql.connector.Error
         conn = conectar_sql(
             user=credenciales["USER_SQL"],
             password=credenciales["PASSWORD_SQL"],
+            db = db
         )
         cursor = conn.cursor()
         cursor.executemany(insert_query, datos)

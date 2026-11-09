@@ -39,9 +39,11 @@ def main() -> int:
     conn = None
     try:
         credenciales = cargar_credenciales()
+        
         conn = conectar_sql(
             user=credenciales["USER_SQL"],
             password=credenciales["PASSWORD_SQL"],
+            db=DATABASE
         )
         cursor = conn.cursor()
         for sentencia in SENTENCIAS:

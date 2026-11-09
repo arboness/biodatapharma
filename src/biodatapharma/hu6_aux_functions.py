@@ -4,9 +4,6 @@ import mysql.connector
 from dotenv import load_dotenv
 
 
-DATABASE = "schezofrenia"
-
-
 def cargar_credenciales() -> dict[str, str]:
     load_dotenv()
     user = os.getenv("USER_SQL")
@@ -19,17 +16,26 @@ def nombre_base_de_datos() -> str:
     load_dotenv()
     bd = os.getenv("DATABASE")
     if not bd:
-        raise KeyError("Falta DATABASE en el .env")
+        return None
     return bd
 
-def conectar_sql(user: str, password: str):
+def conectar_sql(user: str, password: str, db: str | None):
+    if db is None:
+        return mysql.connector.connect(
+        host="localhost",
+        port=3306,
+        user=user,
+        password=password,
+    )
+        
     return mysql.connector.connect(
         host="localhost",
         port=3306,
         user=user,
         password=password,
-        database=DATABASE,
+        database=db,
     )
+
     
 def leer_sql(path):
     with open(path, encoding="utf-8") as f:

@@ -1,14 +1,22 @@
 import mysql.connector
 from dotenv import load_dotenv
 
-from biodatapharma.hu6_aux_functions import cargar_credenciales, conectar_sql, leer_sql
+from biodatapharma.hu6_aux_functions import cargar_credenciales, conectar_sql, leer_sql, nombre_base_de_datos
 
 SQL_PATH = "src/biodatapharma/hu6_kpis.sql"
 
 def main()->int:
     try:
         dict_credenciales = cargar_credenciales()
-        conn = conectar_sql(user=dict_credenciales.get("USER_SQL"),password=dict_credenciales.get("PASSWORD_SQL"))
+        credenciales = cargar_credenciales()
+        db = nombre_base_de_datos()
+        if db is None:
+            raise mysql.connector.Error
+        conn = conectar_sql(
+            user=credenciales["USER_SQL"],
+            password=credenciales["PASSWORD_SQL"],
+            db=db
+        )
         sentencia_sql = leer_sql(SQL_PATH)
         conn.cursor().execute(sentencia_sql)
         conn.commit()
