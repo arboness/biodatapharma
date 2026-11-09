@@ -61,5 +61,13 @@ def conectar_sql(user: str, password: str, db: str | None):
 
     
 def leer_sql(path):
+    """Lee el contenido de un fichero .sql.
+
+    Args:
+        path: Ruta al fichero SQL.
+
+    Returns:
+        El contenido del fichero como una cadena de texto.
+    """
     with open(path, encoding="utf-8") as f:
         return f.read()
