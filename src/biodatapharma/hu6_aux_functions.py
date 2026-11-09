@@ -30,3 +30,7 @@ def conectar_sql(user: str, password: str):
         password=password,
         database=DATABASE,
     )
+    
+def leer_sql(path):
+    with open(path, encoding="utf-8") as f:
+        return f.read()
