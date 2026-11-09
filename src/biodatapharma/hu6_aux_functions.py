@@ -5,6 +5,14 @@ from dotenv import load_dotenv
 
 
 def cargar_credenciales() -> dict[str, str]:
+    """Carga las credenciales de acceso a MySQL desde el fichero .env.
+
+    Returns:
+        Un diccionario con las claves USER_SQL y PASSWORD_SQL y sus valores correspondientes.
+
+    Raises:
+        KeyError: Si USER_SQL está vacío o no existe, o si PASSWORD_SQL no está definido en el .env.
+    """
     load_dotenv()
     user = os.getenv("USER_SQL")
     password = os.getenv("PASSWORD_SQL")
@@ -13,6 +21,11 @@ def cargar_credenciales() -> dict[str, str]:
     return {"USER_SQL": user, "PASSWORD_SQL": password}
 
 def nombre_base_de_datos() -> str:
+    """Obtiene el nombre de la base de datos definido en el fichero .env.
+
+    Returns:
+        El nombre de la base de datos indicado en la variable DATABASE, o None si no está definida o está vacía.
+    """
     load_dotenv()
     bd = os.getenv("DATABASE")
     if not bd:
@@ -20,6 +33,16 @@ def nombre_base_de_datos() -> str:
     return bd
 
 def conectar_sql(user: str, password: str, db: str | None):
+    """Abre una conexión con el servidor MySQL local.
+
+    Args:
+        user: Nombre de usuario de MySQL.
+        password: Contraseña del usuario.
+        db: Nombre de la base de datos a la que conectarse. Si es None, se conecta al servidor sin seleccionar ninguna base de datos.
+
+    Returns:
+        Un objeto de conexión de mysql.connector abierto contra localhost:3306.
+    """
     if db is None:
         return mysql.connector.connect(
         host="localhost",
