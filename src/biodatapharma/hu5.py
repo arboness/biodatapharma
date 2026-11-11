@@ -38,11 +38,18 @@ def main() -> None:
  
     km = KMeans(n_clusters=NUM_CLUSTERS, n_init=N_INIT, random_state=RANDOM_STATE)
     etiquetas = km.fit_predict(X)
- 
-    df[["nregistro"]].assign(cluster=etiquetas).to_csv(RUTA_SALIDA, index=False)
+    etiquetas = km.fit_predict(X)
+
+    conteo = pd.Series(etiquetas).value_counts().sort_index()
+    print(f"Número de clústeres: {km.n_clusters}")
+    print("Medicamentos por clúster:")
+    for cluster, n in conteo.items():
+        print(f"  Clúster {cluster}: {n} ({n / len(etiquetas):.1%})")
+        
+    df_clusters = df[["nregistro"]].assign(cluster=etiquetas)
     df_hu4 = pd.read_csv(RUTA_DATOS_HU4_SIN_ESCALAR)
 
-    df = df.merge(
+    df = df_clusters.merge(
         right=df_hu4[COLUMNS],
         right_on="nregistro",
         left_on="nregistro",

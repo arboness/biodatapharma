@@ -2,6 +2,7 @@ import re
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+from tqdm import tqdm
 from biodatapharma.constants import DATA_DIR
 
 
@@ -79,8 +80,8 @@ def calcular_metricas(html: str) -> dict:
 def main() -> None:
     df = pd.read_excel(DATA_DIR / INPUT_NAME)
     rows=[]
-    for url in df[COLUMN_URL]:
-        print(url)
+    for url in tqdm(df[COLUMN_URL], desc="Urls"):
+        
         resp = requests.get(url, headers=HEADERS)
         resp.raise_for_status()
         rows.append(calcular_metricas(resp.text))
@@ -90,4 +91,4 @@ def main() -> None:
     df.to_excel(DATA_DIR / OUTPUT_NAME, index=False)    
     
 if  __name__ == "__main__":
-    main()   
+    main()

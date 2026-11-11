@@ -6,7 +6,7 @@ import pandas as pd
 from biodatapharma.hu6_aux_functions import cargar_credenciales, conectar_sql, nombre_base_de_datos
 
 RAIZ = Path(__file__).resolve().parents[2]
-RUTA_SALIDA = "data" / "hu5_clusters_reconstruido.csv"
+RUTA_SALIDA = RAIZ / "data" / "hu5_clusters_reconstruido.csv"
 RUTA_DATOS_HU3 = RAIZ / "data" / "hu3_esquizofrenia.xlsx"
 RUTA_DATOS_HU5 = RAIZ / "data" / "hu5_clusters.csv"
 

@@ -3,7 +3,7 @@ import math
 from biodatapharma.hu1_aux_functions import extract_drug_details
 import pandas as pd
 from biodatapharma.constants import DISEASE_NAME, DATA_DIR
-
+from tqdm import tqdm
 
 def pages_number(disease: str) -> int:
     """Calcula el número de páginas que se deben de obtener de la API para conseguir todos los registros de la enfermedad.
@@ -30,7 +30,6 @@ def pages_number(disease: str) -> int:
     page_size = datos.get("tamanioPagina")
     nregisters = datos.get("totalFilas")
     total_pages = math.ceil(nregisters/page_size)
-    print(nregisters)
     return total_pages
 
 
@@ -77,19 +76,17 @@ def drugs_to_xlsx(drug_register_numbers: list[str])->None:
     """
     
     drug_info_dicts = [] 
-    for register_number in drug_register_numbers:
+    for register_number in tqdm(drug_register_numbers, desc="Medicamentos"):
         drug_info_dicts.append(extract_drug_details(register_number))
 
     df = pd.DataFrame(drug_info_dicts)
     df.to_excel(DATA_DIR / f"hu1_{DISEASE_NAME}.xlsx", index=False)  
     
-    print(df.isna().sum()) 
 
      
 def main() -> None:
     nrecords = extract_register_numbers(disease=DISEASE_NAME)
     drugs_to_xlsx(nrecords)
-    print(len(nrecords))
     
 
 
