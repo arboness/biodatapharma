@@ -14,7 +14,7 @@ NOMENCLATOR_COLUMNS = [
 
 
 def main()->None:
-    df_nomenclator=pd.read_csv(DATA_DIR / "20260927_Nomenclator_de_Facturacion.csv")
+    df_nomenclator=pd.read_csv(DATA_DIR / "nomenclator.csv")
     df_HU2=pd.read_excel(DATA_DIR / "hu2_esquizofrenia.xlsx")
     df_nomenclator_filtered = df_nomenclator[NOMENCLATOR_COLUMNS].copy()
 

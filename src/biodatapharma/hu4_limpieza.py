@@ -23,7 +23,6 @@ FECHA_REFERENCIA = pd.Timestamp("2026-09-27")
 df = df.sort_values("comercializado", ascending=False)
 df = df.drop_duplicates(subset=["nombre", "labtitular"])
 df = df.sort_index()
-print("Tras quitar duplicados:", df.shape)
 
 # 2. Identificadores y columnas sin variación
 df = df.drop(columns=["cn", "nombre", "url_ficha_tecnica", "url_foto_materiales"])
@@ -134,9 +133,4 @@ numericas = ["antiguedad_anios", "pvp", "dosis_mg", "num_excipientes",
              "palabras_seccion_4_4", "num_tablas", "num_grave"]
 df[numericas] = RobustScaler().fit_transform(df[numericas])
 
-# 8. Comprobaciones y guardado
-print("Nulos restantes:", df.isna().sum().sum())
-print("Columnas de texto restantes:", list(df.select_dtypes(exclude="number").columns))
-
 df.to_csv("data/hu4_esquizofrenia_limpio.csv", index=False)
-print("Dataset final:", df.shape)

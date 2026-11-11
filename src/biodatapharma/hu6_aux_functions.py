@@ -1,7 +1,10 @@
 import os
+from pathlib import Path
 
 import mysql.connector
 from dotenv import load_dotenv
+import pandas as pd
+
 
 
 def cargar_credenciales() -> dict[str, str]:

@@ -49,7 +49,7 @@ def extract_register_numbers(disease: str) -> list[str]:
     for page in range(1, num_pages+1):
         
         r = requests.post(
-            f"https://cima.aemps.es/cima/rest/buscarEnFichaTecnica?pagina={page}",
+            f"https://cima.aemps.es/cima/rest/buscarEnFichaTecnica",
             json=[
                 {
                     "seccion": "4.1",
@@ -57,6 +57,9 @@ def extract_register_numbers(disease: str) -> list[str]:
                     "contiene": 1
                 }
             ],
+            params={
+                "pagina": page
+            },
             timeout=10,
         )
         r.raise_for_status()

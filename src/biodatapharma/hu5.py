@@ -13,8 +13,10 @@ from sklearn.metrics import silhouette_score
 """
 
 RAIZ = Path(__file__).resolve().parents[2]
-RUTA_DATOS = RAIZ / "data" / "hu4_esquizofrenia_limpio.csv"
+RUTA_DATOS_HU4 = RAIZ / "data" / "hu4_esquizofrenia_limpio.csv"
+RUTA_DATOS_HU4_SIN_ESCALAR = RAIZ / "data" / "hu4_esquizofrenia_limpio_sin_escalar.csv"
 RUTA_SALIDA = RAIZ / "data" / "hu5_clusters.csv"
+
 
 DROP_COLUMNS_TLD = ["nregistro", "tld_unknown"]
 
@@ -22,16 +24,32 @@ NUM_CLUSTERS = 5
 N_INIT = 10
 RANDOM_STATE = 42
 
+COLUMNS = ['nregistro', 'labcomercializador', 'forma_farmaceutica_simplificada',
+       'vias_administracion', 'comercializado', 'generico', 'num_excipientes',
+       'palabras_seccion_4_4', 'num_tablas', 'num_grave', 'pvp',
+       'antiguedad_anios', 'revocado', 'tld_unknown', 'pa_base', 'dosis_mg',
+       'dosis_es_concentracion']
+
 
 def main() -> None:
  
-    df = pd.read_csv(RUTA_DATOS)
+    df = pd.read_csv(RUTA_DATOS_HU4)
     X = df.drop(columns=DROP_COLUMNS_TLD)
  
     km = KMeans(n_clusters=NUM_CLUSTERS, n_init=N_INIT, random_state=RANDOM_STATE)
     etiquetas = km.fit_predict(X)
  
     df[["nregistro"]].assign(cluster=etiquetas).to_csv(RUTA_SALIDA, index=False)
+    df_hu4 = pd.read_csv(RUTA_DATOS_HU4_SIN_ESCALAR)
+
+    df = df.merge(
+        right=df_hu4[COLUMNS],
+        right_on="nregistro",
+        left_on="nregistro",
+    )
+
+
+    df.to_csv(RUTA_SALIDA, index=False)
  
  
 if __name__ == "__main__":
