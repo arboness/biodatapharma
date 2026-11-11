@@ -1,0 +1,943 @@
+% =====================================================================
+%  Plantilla de documentación - Universidad Pontificia Comillas (ICAI)
+%  Máster Universitario en Inteligencia Artificial Aplicada (MUIAAP)
+% ---------------------------------------------------------------------
+%  Compilar con pdfLaTeX (Overleaf, TeX Live o MiKTeX).
+%  Coloca el logo en la misma carpeta con el nombre: logo_comillas.jpeg
+%  (si no existe, se muestra un recuadro en su lugar).
+% =====================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Idioma y codificación ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+
+% ---------- Fuentes ----------
+% Fuente predeterminada de LaTeX (Computer Modern, versión Latin Modern)
+\usepackage{lmodern}
+
+% ---------- Paquetes generales ----------
+\usepackage[a4paper,top=3cm,bottom=2.5cm,left=2.5cm,right=2.5cm,headheight=1.4cm]{geometry}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{listings}
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Colores corporativos ----------
+\definecolor{azulportada}{HTML}{2E4A84}   % "Grupo" y nombres
+\definecolor{grisportada}{HTML}{595959}   % asignatura / máster
+\definecolor{azulicai}{HTML}{1B3A8C}
+\definecolor{grisclaro}{HTML}{F2F2F2}
+
+% =====================================================================
+%  DATOS DEL DOCUMENTO  (edita aquí)
+% =====================================================================
+\newcommand{\titulo}{Sprints 1, 2 y 3}
+\newcommand{\grupo}{SchizofenIA}
+\newcommand{\autores}{%
+  Rodrigo Arbones Vázquez\\
+  Justo Abellás López\\
+  Gonzalo Vizoso Marchena}
+\newcommand{\asignatura}{Ingeniería del Dato}
+\newcommand{\master}{Máster Universitario en Inteligencia Artificial\\Aplicada (MUIAAP)}
+\newcommand{\logo}{logo_comillas.jpeg}
+
+% Logo con recuadro de sustitución si falta el archivo
+\newlength{\anchologo}
+\newcommand{\insertarlogo}[1]{%
+  \IfFileExists{\logo}%
+    {\includegraphics[width=#1]{\logo}}%
+    {\setlength{\anchologo}{#1}%
+     \fbox{\parbox[c][0.3\anchologo][c]{\anchologo}{\centering\small Logo Comillas}}}}
+
+% =====================================================================
+%  CABECERA Y PIE
+% =====================================================================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\insertarlogo{3.6cm}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% =====================================================================
+%  ESTILO DE TÍTULOS
+% =====================================================================
+\titleformat{\section}
+  {\normalfont\LARGE\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}
+  {\normalfont\Large\bfseries}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}
+  {\normalfont\large\bfseries}{\thesubsubsection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.2em}{0.8em}
+\titlespacing*{\subsection}{0pt}{1em}{0.5em}
+
+% Secciones sin número, como en el original.
+% (Pon 3 si quieres "1. Introducción", "1.1. ...")
+\setcounter{secnumdepth}{0}
+
+% =====================================================================
+%  ESTILO DEL ÍNDICE  (entradas en mayúsculas, negrita y con puntos)
+% =====================================================================
+\addto\captionsspanish{%
+  \renewcommand{\contentsname}{Índice}%
+  \renewcommand{\tablename}{Tabla}%
+  \renewcommand{\listtablename}{Índice de tablas}}
+\titlecontents{section}[0pt]
+  {\addvspace{1.1em}\bfseries}
+  {\thecontentslabel.\enspace\MakeUppercase}   % con número
+  {\MakeUppercase}                              % sin número
+  {\titlerule*[0.4em]{.}\contentspage}
+\titlecontents{subsection}[1.5em]
+  {\addvspace{0.3em}}
+  {\thecontentslabel.\enspace}
+  {}
+  {\titlerule*[0.4em]{.}\contentspage}
+\setcounter{tocdepth}{1}   % pon 2 para que salgan también las HU
+
+% ---------- Otros ajustes ----------
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+\captionsetup{font=small,labelfont=bf}
+\renewcommand{\lstlistingname}{Código}
+\definecolor{cadena}{HTML}{A31515}
+\definecolor{comentario}{HTML}{6A737D}
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{grisclaro},
+  frame=single, rulecolor=\color{gray!40},
+  framesep=4pt, xleftmargin=4pt, xrightmargin=4pt,
+  breaklines=true, breakatwhitespace=false,
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space},
+  showstringspaces=false, columns=fullflexible, keepspaces=true,
+  upquote=true, tabsize=4, captionpos=b,
+  literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1 {ñ}{{\~n}}1,
+  keywordstyle=\color{azulicai}\bfseries,
+  stringstyle=\color{cadena},
+  commentstyle=\color{comentario}\itshape
+}
+% Palabras clave de SQL que listings no trae por defecto
+\lstdefinelanguage{MySQL}[]{SQL}{morekeywords={REPLACE,VIEW,ROUND,AVG,COUNT,NULLIF,DENSE_RANK,OVER,PARTITION,DESC},sensitive=false}
+% Pies de los bloques de código con el mismo estilo que las figuras
+\captionsetup[lstlisting]{font={small,it},labelfont={small,it},labelsep=period}
+
+% =====================================================================
+
+% ---------- Código en línea (permite cortar en _ . /) ----------
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\do\_\do\.\do\/\do\-}
+\makeatother
+\DeclareUrlCommand\code{\urlstyle{tt}}   % ojo: \code ignora los espacios; para texto con espacios usa \texttt
+
+% Viñetas de segundo nivel como en el Word
+\setlist[itemize,2]{label=$\circ$}
+
+% Pies de figura en cursiva, como en el original
+\captionsetup[figure]{font={small,it},labelfont={small,it},labelsep=period}
+
+% Si una imagen no existe, se muestra un recuadro en lugar de dar error
+\let\includegraphicsoriginal\includegraphics
+\renewcommand{\includegraphics}[2][]{%
+  \IfFileExists{#2}%
+    {\includegraphicsoriginal[#1]{#2}}%
+    {\fbox{\parbox[c][3cm][c]{0.6\textwidth}{\centering\small Imagen: \detokenize{#2}}}}}
+
+\begin{document}
+
+% ---------------------------- PORTADA --------------------------------
+\begin{titlepage}
+  \centering
+  \vspace*{0.3cm}
+  \insertarlogo{11cm}\par
+
+  \vfill
+  {\bfseries\fontsize{34}{40}\selectfont \titulo\par}
+  \vspace{1.6cm}
+
+  {\color{azulportada}\Large\bfseries Grupo: \grupo\par}
+  \vspace{0.9cm}
+  {\color{azulportada}\bfseries \autores\par}
+
+  \vspace{2.4cm}
+  {\color{grisportada}\large\bfseries \asignatura\\ \master\par}
+  \vspace*{2.5cm}
+\end{titlepage}
+
+% ----------------------------- ÍNDICE --------------------------------
+\setcounter{page}{2}
+\tableofcontents
+\newpage
+
+% =====================================================================
+\section{Introducción}
+% =====================================================================
+
+\subsection{HU-1: Obtención de los números de registro}
+Para poder empezar con el proyecto, se necesitaba obtener los números de registro para cada
+medicamento asociado a la enfermedad escogida, la esquizofrenia. Para ello, se
+realizaron una serie de \textbf{peticiones a la API \textit{(Application Programming Interface) }pública de CIMA}.
+
+Se recuperaron de la API los siguientes valores:
+\begin{itemize}
+  \item Total de medicamentos para la esquizofrenia.
+  \item Números de registro para cada medicamento de la esquizofrenia.
+\end{itemize}
+
+Para ello, se siguen una serie de pasos que se encuentran detallados en la metodología de la
+HU-1.
+
+\subsection{HU-2: Web scraping de las fichas técnicas}
+En la HU-1 se obtuvieron, a través de la API de CIMA, los 1013 medicamentos indicados para la
+esquizofrenia junto con el enlace a su ficha técnica en HTML. La API da los datos generales
+de cada medicamento, pero no el contenido de la ficha, así que en la HU-2 el objetivo es
+descargar automáticamente la ficha técnica de cada medicamento y calcular las siguientes tres métricas sobre
+ella:
+\begin{itemize}
+  \item Número de palabras de la sección 4.4 (advertencias y precauciones).
+  \item Número de tablas (\code{<table>}) del documento.
+  \item Número de veces que aparece la palabra ``grave'' o ``graves''.
+\end{itemize}
+Estas métricas se añaden a los datos de la HU-1 y se guardan en un nuevo fichero \code{.xlsx}.
+
+Para la compañía, revisar manualmente más de mil fichas técnicas sería inviable. Automatizar
+su lectura permite disponer de indicadores de seguridad y riesgo de todo el catálogo en minutos
+y actualizarlos cuando la AEMPS modifique las fichas.
+
+\subsection{HU-3: Integración de datos económicos}
+Como resultado final a las dos historias de usuario anteriores, se obtuvo el archivo \code{HU2\_esquizofrenia.xlsx}, donde se almacenan los datos de los medicamentos empleados en
+tratamientos psiquiátricos (pacientes de esquizofrenia) junto con los datos recopilados en las
+dos primeras historias de usuario.
+
+En la parte final de este trabajo se completará esta tabla junto a datos económicos de interés
+obtenidos directamente de la página web del ministerio de sanidad:
+\url{https://www.sanidad.gob.es/profesionales/nomenclator.do?metodo=buscarProductos}.
+Esto se hace con el objetivo de obtener un nuevo archivo Excel que contenga tanto la información
+médica de los 1013 medicamentos obtenidos inicialmente, como los que figuran en la base de
+datos del estado.
+
+\subsection{HU-4: Transformación de los datos}
+En la HU-3 se obtuvo el fichero \code{hu3_esquizofrenia.xlsx}, con 1013 medicamentos y 31
+columna los datos de CIMA, las métricas de las fichas técnicas y los datos
+económicos del Nomenclátor. Este fichero todavía no se puede usar en un modelo como K-Means (basado en distancias), porque contiene texto, fechas, valores nulos y variables con escalas muy distintas.
+
+El objetivo de la HU-4 es transformar el dataset, siguiendo las conclusiones del análisis
+exploratorio (EDA), para dejarlo listo para el modelo K-Means de la HU-5. El dataset final debe cumplir tres
+condiciones:
+\begin{itemize}
+  \item Todas las columnas deben ser numéricas.
+  \item No puede haber valores nulos.
+  \item Las variables numéricas estandarizarse.
+\end{itemize}
+Disponer de un dataset limpio y reproducible es la base de cualquier análisis, permite agrupar automáticamente todo el catálogo sin tener que revisar y corregir los
+datos a mano cada vez que se actual.
+
+\subsection{HU-5: Agrupación por K-Means}
+Una vez aplicadas las transformaciones necesarias a los datos, se procede con el entrenamiento
+de \textbf{K-Means}, un modelo de \textbf{aprendizaje no supervisado} que agrupa los datos en
+\textbf{k clústeres}.
+
+\textbf{Funcionamiento:}
+\begin{enumerate}
+  \item Se escogen \textbf{k puntos aleatorios} como \textbf{centroides} iniciales. Un centroide son unas coordenadas que representan al grupo.
+  \item Se asocia \textbf{cada punto al centroide} más cercano de dicho punto.
+  \item Se recalcula la \textbf{posición del centroide} en función a los puntos del grupo.
+  \item Se repite el paso 2 n veces.
+\end{enumerate}
+Como es un modelo basado en distancias, debemos de \textbf{escalar} todas las columnas de los datos
+para que \textbf{el cálculo de la distancia sea coherente}.
+
+\subsection{HU-6: Indicadores de negocio en MySQL}
+Para la carga de los datos, se realizaron una serie de transformaciones sobre distintos archivos \code{.csv} y
+se creó posteriormente una base de datos en local con una tabla llamada \textit{medicamentos} para
+almacenar todos los medicamentos obtenidos durante el trabajo. \textbf{Los KPIs (Key Performance Indicators) se
+calculan en base a esta tabla.} Un KPI es una métrica de negocio.
+
+Partimos de los datos de las anteriores historias de usuario, con el objetivo de crear una vista con los KPIs indicados a continuación.
+\begin{itemize}
+  \item \textbf{Desviación de precio:} Mide en porcentaje la diferencia de los precios de venta la público y los precios de referencia.
+  \item \textbf{Densidad de Ficha Técnica:} Calcula el cociente entre las variables del número de palabras en la sección 4.4 (\code{palabras_seccion_4_4}) del código de la página web y el número de tablas que contiene la misma sección (\code{num_tablas}), lo cual es un indicador de la complejidad del medicamento.
+  \item \textbf{Total de componentes:} Indica cuántos principios activos y excipientes contiene el medicamento en conjunto.
+  \item \textbf{Margen económico absoluto:} Mide en euros la diferencia entre el precio de venta al público con IVA (PVP) y el precio de referencia.
+  \item \textbf{Ranking de Precios por Grupo:} Para cada tipo de forma farmacéutica simplificada, crea un ranking propio según el pvp de cada grupo, ordenando cada medicamento por su pvp de manera descendente dentro de cada grupo, manteniendo los nulos de últimos en el ranking.
+\end{itemize}
+\newpage
+% =====================================================================
+\section{Metodología}
+% =====================================================================
+
+\subsection{HU-1: Obtención de los números de registro}
+Para obtener los números de registro, se debe hacer una petición con el método POST a la API
+de CIMA. El endpoint en concreto es
+\url{https://cima.aemps.es/cima/rest/buscarEnFichaTecnica?pagina=1}. Tras analizar la respuesta
+del servidor, se observó lo siguiente:
+\begin{itemize}
+  \item El servidor devolvía un JSON con un diccionario, cuya clave \code{resultados} contenía los
+        valores necesarios para continuar con el proyecto.
+  \item La clave \code{totalFilas} del diccionario asociado a la clave \code{resultados} de la respuesta,
+        tenía asociado el número de medicamentos para la enfermedad.
+  \item La clave \code{tamanioPagina}, el número de filas por página.
+\end{itemize}
+
+Luego para la página 1, se obtuvieron tantos números de registro como \code{totalFilas}.
+
+Se realizó una división entera \textbf{aproximando al siguiente valor entero} del número de filas
+entre el tamaño de página, viendo así en cuántas páginas estaban divididos los medicamentos,
+luego ya se sabía cuántas peticiones se debían de realizar.
+
+Una vez obtenido el número de páginas, se creó una función para iterar el número de página y
+\textbf{cambiar dinámicamente el endpoint} de la siguiente manera:
+\nolinkurl{https://cima.aemps.es/cima/rest/buscarEnFichaTecnica?pagina=}\{\textbf{numPagina}\}
+
+Se extrajo el valor asociado a \code{nRegistro} del diccionario asociado a la key \code{resultados} y se
+hizo una lista con todos los números de registro obtenidos. Se realizaron un total de \textbf{siete
+peticiones}.
+
+Una vez obtenidos todos los números de registro, se llamó a la función
+\code{extract_drug_details} tantas veces como registros había en la lista. De esta manera, se
+realizaron 1013 peticiones GET al endpoint \url{https://cima.aemps.es/cima/rest/medicamento}
+pasando como parámetro el número de registro.
+
+Para cada respuesta del servidor, se codificaron una serie de funciones que analizaron el
+JSON de respuesta para obtener los campos requeridos por el enunciado. Dichas funciones,
+son llamadas por \code{extract_drug_details}, que devuelve un diccionario con \textbf{los campos del
+enunciado como claves y los valores obtenidos como valores de dichas claves}.
+
+Se ha generalizado la programación de estas funciones para que, simplemente cambiando la
+constante que representa el nombre de la enfermedad, se puedan recuperar los números de
+registro de los medicamentos asociados a dicha enfermedad.
+
+\subsection{HU-2: Web scraping de las fichas técnicas}
+Se ha usado Python con las librerías \textbf{requests} para descargar el HTML, \textbf{BeautifulSoup} para leer y
+recorrer el HTML, \textbf{re} para el uso de expresiones regulares para contar palabras y \textbf{pandas} para leer la salida de la
+HU-1 y exportar a \code{.xlsx}. Las dependencias se gestionan con \code{uv}.
+
+Antes de programar, se inspeccionaron las fichas con las herramientas de desarrollador del
+navegador y se vio que todas tienen la misma estructura, cada sección empieza con un título
+\code{<h2>} cuyo id es el número de la sección (por ejemplo \texttt{<h2 id="4.4">}), seguido del contenido.
+Esto permite saber dónde empieza y dónde acaba la sección 4.4.
+
+El script funciona así:
+\begin{enumerate}
+  \item Lee el fichero de la HU-1 y recorre la columna \code{url_ficha_tecnica}.
+  \item Descarga el HTML de cada ficha con \code{requests.get()}.
+  \item Calcula las tres métricas:
+  \begin{itemize}
+    \item \textbf{Palabras 4.4:} busca \texttt{<h2 id="4.4">} y cuenta las palabras de todo lo que hay hasta
+          el siguiente \code{<h2>} (la 4.5).
+    \item \textbf{Tablas:} cuenta las etiquetas \code{<table>} con \code{find_all("table")}.
+    \item \textbf{Grave:} cuenta coincidencias con la expresión \texttt{\textbackslash bgraves?\textbackslash b}, sin distinguir
+          mayúsculas, para no contar palabras como ``gravedad''.
+  \end{itemize}
+  \item Une las métricas a los datos de la HU-1 por \code{nregistro} y guarda el resultado en
+        \code{HU2_esquizofrenia.xlsx}.
+\end{enumerate}
+Si una ficha da error al descargarse o no tiene sección 4.4, el script no se para, deja ese valor
+vacío (NaN) y sigue con el siguiente medicamento.
+
+Para probarlo, primero se ejecuta el script con unos pocos medicamentos y comprobamos a
+mano, con el navegador, que las métricas coincidían con lo que se veía en la ficha. Después se lanza para los 1013.
+
+\subsection{HU-3: Integración de datos económicos}
+Se ha
+desarrollado el código en un único archivo de código \code{HU3.py}. Antes de desarrollarlo se deben
+de importar las librerías pandas y pathlib.
+
+\begin{itemize}
+  \item Fichero Excel con los datos recopilados hasta HU-2: hu2\_esquizofrenia.xlsx
+  \item Fichero CSV con los datos del ministerio de sanidad:
+        20260927\_Nomenclator\_de\_Facturacion.csv”
+\end{itemize}
+
+Antes de empezar con el main, se define una lista con los nombres de los features del csv con los que queremos contar en nuestro archivo final.
+
+Se crea un nuevo df para trabajar más cómodamente que almacenará únicamente los datos económicos de interés:
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=Python, caption={Selección de datos de interés de la base de datos económicos.}, label={lst:hu3_seleccion_columnas_nomenclator}]
+df_nomenclator_filtered = df_nomenclator[NOMENCLATOR_COLUMNS].copy()
+\end{lstlisting}
+\end{minipage}
+
+Con el comando \code{merge()}, se hace una unión de ambos
+dataframes, y tomando como valor clave de ambas tablas el código nacional de cada
+medicamento, se unen hacia la tabla de los archivos obtenidos en HU, es decir no se
+almacenará en esta nueva tabla ningún medicamento que no se haya obtenido durante el
+proceso del trabajo.
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=Python, caption={Merge de ambas tablas de datos}, label={lst:hu3_merge_tablas}]
+df_HU3 = df_HU2.merge(
+    df_nomenclator_filtered,
+    left_on="cn",
+    right_on="Código Nacional",
+    how="left",
+)
+\end{lstlisting}
+\end{minipage}
+
+Finalmente, con el comando que aparece a continuación, se crea un nuevo archivo excel con
+los datos creados del nuevo dataframe.
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=Python, caption={Comando que convierte el dataframe en .xlsx}, label={lst:hu3_exportar_excel}]
+df_HU3.to_excel(DATA_DIR / "hu3_esquizofrenia.xlsx", index=False)
+\end{lstlisting}
+\end{minipage}
+
+\subsection{HU-4: Transformación de los datos}
+La transformación se ha desarrollado en el script \code{hu4_limpieza.py}, usando las librerías \code{pandas}, \textbf{re} y \textbf{scikit-learn} (\code{RobustScaler}, para
+escalar las variables). Se ha programado en un fichero \code{.py} en lugar de un notebook para poder
+orquestar todo el proceso en la entrega final. Se ejecuta desde la raíz del proyecto con
+\code{uv run} \code{src/biodatapharma/hu4_limpieza.py}.
+
+El script lee \code{data/hu3_esquizofrenia.xlsx} y aplica los siguientes pasos, en este orden:
+\begin{enumerate}
+  \item \textbf{Duplicados:} hay 17 nombres repetidos que son autorizaciones europeas (un \code{nregistro}
+        por envase). Se deja una fila por nombre y laboratorio titular, conservando la presentación
+        comercializada.
+  \item \textbf{Columnas eliminadas:} los identificadores (\code{cn}, \code{nombre} y las URLs), conservando solo
+        \code{nregistro} para poder cruzar los clústeres con los datos originales, y las columnas sin
+        variación (\code{requiere_receta}, \code{biosimilar}, \code{triangulo_negro}...), que no ayudan a
+        diferenciar medicamentos.
+  \item \textbf{Fechas:} \code{estado_aut} se convierte en \code{antiguedad_anios} usando una fecha fija
+        (27/09/2026, la de la descarga) para que el resultado sea reproducible. \code{estado_rev} es la
+        fecha de revocación, así que se transforma en \code{revocado} (0/1).
+  \item \textbf{Nulos:} los 3 de \code{labcomercializador} se rellenan con Zentiva K.S. Los de Tratamiento de
+        larga duración pasan a la variable \code{tld_unknown} (0/1), para entrenar el modelo con y sin
+        ella. El precio se rellena con la mediana del mismo principio activo y forma farmacéutica,
+        si no existe, con la de la forma farmacéutica y, por último, con la mediana general.
+  \item \textbf{Dosis:} es texto libre con 134 formatos distintos. Con expresiones regulares se extrae el
+        valor numérico (\code{dosis_mg}) y se marcan las concentraciones en mg/ml con
+        \code{dosis_es_concentracion}.
+  \item \textbf{Categóricas:} las categorías poco frecuentes se agrupan en OTROS (principios activos
+        con menos de 10 medicamentos y laboratorios con menos de 30) y se aplica one-hot
+        encoding a la forma farmacéutica, la vía de administración, el estado, el principio activo y
+        el laboratorio.
+  \item \textbf{Escalado:} las 7 variables numéricas se escalan con \code{RobustScaler}, que usa la mediana
+        y el rango intercuartílico, ya que los outliers no se han tratado, evitando así que los valores
+        extremos afecten a la escala.
+\end{enumerate}
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=Python, caption={Función que convierte el texto de la dosis en un número.}, label={lst:hu4_funcion_extraer_dosis}]
+def extraer_dosis(texto):
+    texto = texto.lower().replace(",", ".")
+    if "desconocida" in texto:
+        return 10.0
+    numeros = [float(n) for n in re.findall(r"\d+\.?\d*", texto)]
+    if "%" in texto:
+        return numeros[0] * 10
+    if "100 ml" in texto:
+        return numeros[0] / 100
+    if "ml" in texto:
+        return numeros[0]
+    if "+" in texto or len(numeros) > 1:
+        return sum(numeros)
+    return numeros[0]
+\end{lstlisting}
+\end{minipage}
+
+Por último, el script comprueba que no quedan nulos ni columnas de texto y guarda el resultado
+en la carpeta \code{data/}.
+
+\subsection{HU-5: Agrupación por k-means}
+Como el último paso del HU-4 fue el escalado, ya se puede comenzar a manejar los datos para
+el entrenamiento del modelo.
+
+Se va a utilizar la función \code{Kmeans} de Scikit-learn. Se pueden ajustar los siguientes
+hiperparámetros:
+\begin{itemize}
+  \item \textbf{n\_clusters:} Número de clústeres en los que queremos agrupar los datos.
+  \item \textbf{n\_init:} Número de inicializaciones. Se realizan n k-means y el algoritmo se queda con el
+        que mejor números da.
+  \item \textbf{random\_state:} Seed de inicialización.
+\end{itemize}
+Pero, ¿cómo se decide el número de clústers? Pues con unas pruebas que indiquen con cuántos
+clústeres los datos quedan mejor repartidos. Para ello, se introducen los conceptos de \textbf{inercia} y
+\textbf{silueta.}
+\begin{itemize}
+  \item \textbf{Inercia:} La suma de las distancias al cuadrado de todos los puntos a su centroide. A
+        menor inercia, clústeres más representativos. Esta métrica no puede ser decisiva de
+        manera individual, ya que, a mayor número de clústeres, menor inercia. Por ello, también
+        se utiliza la silueta.
+  \item \textbf{Silueta:} Compara lo cerca que está de los puntos de su clúster y lo cerca que está a los
+        puntos del clúster más cercano.
+\end{itemize}
+Se va a analizar dónde la inercia deja de bajar bruscamente (donde comienza a estabilizarse) y
+de entre los números de clústeres donde la inercia deja de bajar tan bruscamente, cuál de ellos
+tiene una mayor silueta.
+
+Además, debido al análisis en HU4, se va a probar la clusterización con y sin \code{tld\_unknown},
+\textbf{comparando resultados posteriormente.}
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=Python, caption={Prueba de diferentes hiperparámetros.}, label={lst:hu5_prueba_hiperparametros}]
+resultados = {}
+print("\nKmeans sin nregistro:")
+inercias, siluetas = [], []
+for k in range(2, 13):
+    km = KMeans(n_clusters=k, n_init=10)
+    etiquetas = km.fit_predict(df_sin_nregistro)
+    inercias.append(km.inertia_)
+    siluetas.append(silhouette_score(df_sin_nregistro, etiquetas))
+    print(k, km.inertia_, silhouette_score(df_sin_nregistro, etiquetas))
+resultados["sin nregistro"] = (inercias, siluetas)
+
+print("\nKmeans sin nregistro ni tld_unknown:")
+inercias, siluetas = [], []
+for k in range(2, 13):
+    km = KMeans(n_clusters=k, n_init=10)
+    etiquetas = km.fit_predict(df_sin_TLD)
+    inercias.append(km.inertia_)
+    siluetas.append(silhouette_score(df_sin_TLD, etiquetas))
+    print(k, km.inertia_, silhouette_score(df_sin_TLD, etiquetas))
+resultados["sin nregistro ni tld_unknown"] = (inercias, siluetas)
+\end{lstlisting}
+\end{minipage}
+
+\subsection{HU-6: Indicadores de negocio en MySQL}
+Para la carga de los datos, se realizaron una serie de transformaciones sobre distintos csvs de
+las historias de usuario. Como se habían eliminado una serie de columnas necesarias para
+calcular los Key Performance Indicators (KPIs), se hicieron distintos merges para recuperar
+dichas columnas.
+\begin{itemize}
+  \item \textbf{Primer merge:} entre el csv de la historia de usuario 4 (sin escalar) y el csv obtenido en
+        la historia de usuario 5, que indica a qué grupo pertenece cada clúster según su
+        nregistro. De esta manera, se obtuvo un csv con los datos limpios y con una columna
+        extra que indica a qué clúster pertenece cada medicamento.
+  \item \textbf{Segundo merge:} Se realizó un segundo merge entre el primer merge y el de la historia
+        de usuario 3. De este último csv, solo se obtuvo el \textbf{precio de referencia y el número
+        de principios activos}, incorporándolos a la nueva tabla. La tabla resultante fue la del
+        primer merge más las dos columnas nombradas.
+\end{itemize}
+Como precio de referencia tenía nulos porque no se aplicaron transformaciones para rellenarlos
+debido a la eliminación de la columna previa a la transformación, se tuvieron que rellenar
+dichos nulos de la misma manera en la que se rellenaron los nulos de pvp.
+
+Este proceso se puede ver en el \textbf{archivo hu6.ipynb.}
+
+Una vez ya se disponía de la tabla completa, se realizaron una serie de scripts que se
+encargan de la creación de la base de datos y de la posterior carga del csv en la base de datos.
+
+Se cargaron las 996 filas de hu5\_completo\_v4.csv en la tabla medicamentos de MySQL.
+Después, hu6\_kpis.py ejecuta hu6\_kpis.sql para crear la vista vw\_medicamentos\_kpis. La vista
+conserva los datos de la tabla, incluido el clúster, y añade los KPI como columnas calculadas
+para cada número de registro (nregistro).
+\begin{itemize}
+  \item \textbf{Desviación de precio:} Se dividió la diferencia del precio de venta al público y el precio
+        de prenferencia entre el mismo precio de refencia para finalmente multilplicarlo por 100
+        para que el resultado esté en unidades porcentuales. Por otro lado se utilizaron los
+        suiguientes comandos de SQL, \code{NULLIF (,0)} para el cocientes para que tome el valor
+        nulo en lugar de 0 evitando una indeterminación y redondeando el valor a dos
+        decimales con \code{ROUND (,2}.
+  \item \textbf{Densidad de Ficha Técnica:} Al segundo kpi se le aplica la misma metodología, al
+        tratarse de un cociente se emplea la misma herramienta \code{NULLIF}, y se redondea de la
+        misma manera el resultado a dos decimales.
+  \item \textbf{Total de componentes.} Se suman \code{num\_principios\_activos} y \code{num\_excipientes}. La vista
+        guarda el nombre \code{total\_componentes} para el resultado de esa suma.
+  \item \textbf{Margen económico absoluto.} Se resta \code{precio\_de\_referencia} a \code{pvp} y se le llama 
+        \code{margen\_economico\_absoluto} al resultado. El margen es positivo si el \code{pvp} supera el
+        precio de referencia, cero si coinciden y negativo si queda por debajo. Si falta alguno de
+        los dos precios, MySQL devuelve \code{NULL}.
+  \item \textbf{Ranking de Precios por Grupo:} Se crea un ranking sobre los medicamentos
+        particionados por su \code{forma\_farmaceutica\_simplificada}. Esto crea un ranking por cada
+        forma farmacéutica. Dicho ranking, se ordena de manera descendiente con los valores
+        nulos como últimos valores, aunque ya se sabe de antemano que no hay nulos debido a
+        las transformaciones que se aplicaron.
+\end{itemize}
+\newpage
+% =====================================================================
+\section{Resultados}
+% =====================================================================
+
+\subsection{HU-1: Obtención de los números de registro}
+Una vez se han obtenido todos los datos relevantes a cada número de registro, se ha guardado
+la salida en el fichero \code{data/hu1_esquizofrenia.xlsx}.
+
+En la siguiente tabla, se muestran los valores nulos de cada columna:
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{lr}
+    \toprule
+    \textbf{Columna} & \textbf{Número de nulos} \\
+    \midrule
+    Nregistro                          & 0   \\
+    Nombre                             & 0   \\
+    Pactivos                           & 0   \\
+    Labtitular                         & 0   \\
+    Labcomercializador                 & 0   \\
+    Cn                                 & 0   \\
+    dosis                              & 0   \\
+    forma\_farmaceutica\_simplificada  & 0   \\
+    estado\_rev                        & 868 \\
+    vias\_administracion               & 0   \\
+    comercializado                     & 0   \\
+    requiere\_receta                   & 0   \\
+    generico                           & 0   \\
+    afecta\_conduccion                 & 0   \\
+    triangulo\_negro                   & 0   \\
+    medicamento\_huerfano              & 0   \\
+    biosimilar                         & 0   \\
+    url\_ficha\_tecnica                & 0   \\
+    url\_foto\_materiales              & 780 \\
+    num\_registros\_atc                & 0   \\
+    num\_principios\_activos           & 0   \\
+    num\_excipientes                   & 0   \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Se observa que para la columna \code{estado_rev} hay 868 medicamentos para los que la fecha de
+revisión está vacía en el JSON de respuesta del servidor, poniendo un NaN para los
+medicamentos que no tenían este campo en la respuesta. También se observa que, para 780
+medicamentos, no hay imágenes de los materiales.
+
+\subsection{HU-2: Web scraping de las fichas técnicas}
+El resultado es el fichero \code{data/hu2_esquizofrenia.xlsx}, con los 1013 medicamentos de la HU-1
+y tres columnas nuevas: \code{palabras_seccion_4_4}, \code{num_tablas} y \code{num_grave}.
+
+Se procesaron correctamente 1013 de las 1013 fichas. El resumen de las métricas obtenidas es
+el siguiente:
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{lrrrr}
+    \toprule
+    \textbf{Métrica} & \textbf{Media} & \textbf{Mediana} & \textbf{Mínimo} & \textbf{Máximo} \\
+    \midrule
+    Palabras de la sección 4.4  & 2028 & 1762 & 0 & 3791 \\
+    Número de tablas            & 2,7  & 2    & 0 & 21   \\
+    Número de «grave/graves»    & 8,3  & 6    & 0 & 21   \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figuras/hu2_resumen_terminal.png}
+  \caption{Resumen mostrado en la terminal al finalizar la ejecución del script.}
+  \label{fig:hu2_resumen_terminal}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{figuras/hu2_primeras_filas_excel.png}
+  \caption{Primeras filas del fichero HU2\_esquizofrenia.xlsx con las tres métricas nuevas.}
+  \label{fig:hu2_primeras_filas_excel}
+\end{figure}
+
+El sistema funciona como se esperaba: todas las fichas descargadas siguen la misma
+estructura HTML y los errores de descarga no detienen la ejecución. Solo una ficha (Risperidona
+Aristo 3 mg) devuelve 0 palabras en la sección 4.4, por lo que habría que revisarla manualmente.
+Como detalle, la palabra ``grave'' se cuenta en todo el documento, así que también incluye la
+sección de reacciones adversas, donde aparece a menudo. Además, muchos medicamentos son
+genéricos del mismo principio activo y tienen fichas casi iguales, por lo que salen valores muy
+parecidos entre ellos.
+
+\subsection{HU-3: Integración de datos económicos}
+Como resultado al proyecto completo se logró obtener un .xlsx que consolida la información
+técnica y médica, este cuenta con 1013 registros de medicamentos diferentes.
+
+Tras realizar la fusión de ambas tablas se observaron los siguientes resultados:
+\begin{itemize}
+  \item Se lograron emparejar 727 medicamentos de nuestra base de datos con la del
+        Ministerio de Salud.
+  \item La explicación a que 286 fármacos no se encontraran en el Nomenclátor se debe a que
+        son medicamentos que no están financiados por la Seguridad Social del Estado
+        Español.
+  \item Para los 727 fármacos financiados, se extrajeron sus variables financieras. Cabe
+        destacar de ellos la diferencia de precio que existe entre los diferentes tratamientos,
+        habiendo opciones desde 1,51€ hasta los más caros de 1467,94€.
+\end{itemize}
+
+\subsection{HU-4: Transformación de los datos}
+El resultado es el fichero \code{data/hu4_esquizofrenia_limpio.csv}, con 996 medicamentos y 52
+columnas: \code{nregistro} y 51 variables numéricas sin ningún valor nulo. Este es el fichero de entrada
+de la HU-5. También se genera \code{hu4_esquizofrenia_limpio_sin_escalar.csv}, con los mismos
+medicamentos y sus valores reales (euros, mg y años), que servirá para interpretar y poner
+nombre a los clústeres.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{lp{5.5cm}}
+    \toprule
+    \textbf{Paso} & \textbf{Resultado} \\
+    \midrule
+    Duplicados eliminados                     & 17 (de 1013 a 996) \\
+    Medicamentos revocados                    & 143 \\
+    Sin dato del Nomenclátor (tld\_unknown)   & 273 \\
+    Precios imputados                         & 273 \\
+    Dosis en concentración (mg/ml)            & 31 \\
+    Principios activos                        & 9 + OTROS \\
+    Laboratorios                              & 12 + OTROS \\
+    Variables finales                         & 51 (7 numéricas, 5 binarias y 39 one-hot) \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figuras/hu4_salida_terminal.png}
+  \caption{Salida de la terminal al ejecutar el script.}
+  \label{fig:hu4_salida_terminal}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{figuras/hu4_primeras_filas_limpio.png}
+  \caption{Primeras filas de hu4\_esquizofrenia\_limpio.csv (algunas columnas).}
+  \label{fig:hu4_primeras_filas_limpio}
+\end{figure}
+
+Los conteos son algo menores que en el EDA (143 revocados frente a 145 y 273 nulos del
+Nomenclátor frente a 286) porque el EDA se hizo antes de eliminar los duplicados. Tras el
+escalado, la mediana de cada variable numérica es 0, aunque algunas mantienen valores
+extremos (el precio llega a 31 y la dosis a 10,5), ya que los outliers no se han eliminado.
+Hay que tener en cuenta que el precio de 273 medicamentos es imputado y que \code{tld_unknown}
+refleja cómo se hizo el cruce con el Nomenclátor, no una característica del medicamento.
+
+\subsection{HU-5: Agrupación por k-means}
+Una vez probados diferentes números de clústeres y diferentes tipos de datasets (con
+\code{tld\_unknown} y sin \code{tld\_unknwon}), se grafican los resultados para un mejor análisis de las pruebas.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{figuras/hu5_graficas_inercia_silueta.png}
+  \caption{Gráficas de la inercia y de la silueta en función al número de clústeres.}
+  \label{fig:hu5_graficas_inercia_silueta}
+\end{figure}
+
+Se puede ver que la inercia baja rápidamente hasta llegar a 4-5 clústeres, a partir de ahí, la
+inercia baja más lentamente. En cuanto a la silueta (gráfico de la derecha), se observa que la
+que tiene una mejor silueta es cuando agrupamos en 5 clústeres, coincidiendo donde comienza
+a estabilizarse la inercia. Por ello, se decide dividir los datos en 5 clústeres. Una vez decidido el
+número de clústeres, se procede a pasar a un archivo .py dejando el .ipynb de pruebas atrás.
+
+Como ya se han decidido los hiperparámetros, simplemente se entrena y se crea un dataset
+con los números de registro y el clúster asignado para el número de registro.
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=Python, caption={Código de la clusterización final.}, label={lst:hu5_codigo_clusterizacion}]
+df = pd.read_csv(RUTA_DATOS)
+X = df.drop(columns=DROP_COLUMNS_TLD)
+
+km = KMeans(n_clusters=NUM_CLUSTERS, n_init=N_INIT, random_state=RANDOM_STATE)
+etiquetas = km.fit_predict(X)
+
+df[["nregistro"]].assign(cluster=etiquetas).to_csv(RUTA_SALIDA, index=False)
+\end{lstlisting}
+\end{minipage}
+
+Los resultados con la mediana para cada dato son los siguientes:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figuras/hu5_medianas_por_cluster.png}
+  \caption{Tabla de las medianas sin escalar de cada columna para cada clúster.}
+  \label{fig:hu5_medianas_por_cluster}
+\end{figure}
+
+\subsection{HU-6: Indicadores de negocio en MySQL}
+\textbf{Desviacion de precio:}
+
+Como se puede analizar en la siguientes figuras, la mayor parte de los resultados son 0, esto es
+coherente con nuestro EDA que decía que la correlacion entra ambas variables era 1.
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=MySQL, caption={Consulta porcentage de resultados del primer kpi igual a 0.}, label={lst:hu6_consulta_desviacion_cero}]
+SELECT ROUND(AVG(desviacion_de_precio = 0) * 100, 2) AS pct_margen_cero
+FROM vw_medicamentos_kpis;
+\end{lstlisting}
+\end{minipage}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{figuras/hu6_resultado_desviacion_cero.png}
+  \caption{Resultado de la consulta de la figura HU-6.1}
+  \label{fig:hu6_resultado_desviacion_cero}
+\end{figure}
+
+\textbf{Densidad de la ficha técnica:}
+
+En la próxima figura se muestran las principales métricas que resumen el segundo kpi de esta
+historia de usuario, centrándose principalmente en la distribuicion de los datos.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.65\textwidth]{figuras/hu6_metricas_densidad_ficha.png}
+  \caption{Princiapales métrics del segundo kpi}
+  \label{fig:hu6_metricas_densidad_ficha}
+\end{figure}
+
+Para comprobar ambos KPI, se consulta el medicamento con nregistro 86247. La tabla
+muestra 2 principios activos y 8 excipientes, con un PVP y un precio de referencia de 187,29€, como se ve en la 
+Figura~\ref{fig:hu6_consulta_registro_86247}. Como se observa en la figura~\ref{fig:hu6_kpis_registro_86247}, la vista devuelve los resultados esperados: 10 componentes y un margen de 0,00€.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\textwidth]{figuras/hu6_consulta_registro_86247.png}
+  \caption{Consulta de la tabla medicamentos con los datos y el cálculo del registro 86247.}
+  \label{fig:hu6_consulta_registro_86247}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figuras/hu6_kpis_registro_86247.png}
+  \caption{Resultado de los dos indicadores en la vista vw\_medicamentos\_kpis.}
+  \label{fig:hu6_kpis_registro_86247}
+\end{figure}
+
+En los 996 registros del CSV de carga, el total de componentes varía entre 1 y 11. El margen
+es cero en 952 registros y distinto de cero en 44.
+
+Finalmente, la vista queda así. Se pueden ver los 5 KPIs como las últimas columnas de la vista.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{figuras/hu6_vista_kpis.png}
+  \caption{Resultado de la vista vw\_medicamentos\_kpis.}
+  \label{fig:hu6_vista_kpis}
+\end{figure}
+\newpage
+% =====================================================================
+\section{Conclusión}
+% =====================================================================
+
+\subsection{HU-1: Obtención de los números de registro}
+Gracias al análisis de las respuestas JSON de la API, se pudieron obtener todos los números
+de registro de los medicamentos asociados a la esquizofrenia. Además, con una serie de
+peticiones GET, se pudieron obtener campos relevantes de cada medicamento y almacenar
+toda esa información en un \code{dataframe} para posteriormente exportarlo a un fichero \code{xslx} y
+poder visualizar la información recuperada.
+
+\subsection{HU-2: Web scraping de las fichas técnicas}
+A partir de las URLs de la HU-1 se ha automatizado la descarga de las fichas técnicas de los
+1013 medicamentos y se han calculado tres métricas sobre su contenido. Lo más importante fue
+analizar primero la estructura del HTML, porque eso permitió localizar la sección 4.4 de forma
+sencilla. El fichero resultante sirve como entrada para la HU-3, donde se añaden los datos
+económicos del Ministerio.
+
+Estas métricas permiten a la compañía comparar medicamentos de forma rápida y objetiva, por
+ejemplo, para identificar cuáles requieren más precauciones o presentan un mayor riesgo, sin
+necesidad de leer cada ficha.
+
+\subsection{HU-3: Integración de datos económicos}
+Con esta última fase se ha logrado el objetivo principal del sprint, juntar en un único archivo la
+información médica de los medicamentos y sus datos económicos.
+
+Se ha de destacar el uso de la función left merge, utilizada para fusionar las tablas con el código
+nacional como columna común.
+
+El Excel resultante es una herramienta muy práctica y lista para usar y que será de gran utilidad
+para el resto del proyecto, ahorrando así el trabajo manual de navegar y buscar datos entre
+diferentes páginas web, permitiendo ver en una única pantalla todos los datos relativos a
+cada medicamento y acceder concretamente a uno mediante conociendo la clave identificativa
+(código nacional).
+
+\subsection{HU-4: Transformación de los datos}
+Con la HU-4 se ha pasado de un fichero con texto, fechas y nulos a un dataset totalmente
+numérico y escalado, listo para entrenar el K-Means. Lo más importante ha sido basar cada
+transformación en las conclusiones del EDA. Por ejemplo, entender que un nulo en \code{estado_rev}
+significa ``no revocado'' y no un dato que falta.
+
+Al estar en un script \code{.py}, la transformación es reproducible y se puede volver a ejecutar cada vez
+que se actualicen los datos de CIMA o del Nomenclátor, lo que ahorra a la compañía preparar
+los datos a mano antes de cada análisis.
+
+\subsection{HU-5: Agrupación por k-means}
+En esta sección, se van a plasmar las conclusiones del resultado de la clusterización, indicando
+qué caracteriza a cada grupo y por qué.
+\begin{itemize}
+  \item \textbf{Clúster 0:}\\
+        Agrupa el 59\% de los registros. Es el grupo mayoritario y está muy cerca de la mediana
+        global en casi todas las columnas, siendo genérico, comercializado, PVP bajo (47€) y
+        dosis baja (10 mg). Es el más antiguo (14,5 años) y tiene pocas advertencias (\code{num\_grave}
+        5, sección 4.4 por debajo de la global). Representa el medicamento típico del dataset.
+  \item \textbf{Clúster 1:}\\
+        Agrupa el 24.9\% También genéricos, comercializados y baratos, pero con la sección 4.4
+        casi el doble de larga (3097 palabras frente a 1761) y el triple de \code{num\_grave} (18 frente a
+        6). Dosis más alta (200 mg). Las características que los diferencian son las cantidades
+        de advertencias y precauciones, no el precio ni la antigüedad.
+  \item \textbf{Clúster 2:}\\
+        Agrupa el 0.7\%. El único grupo \textbf{no genérico}, con un PVP muy por encima del resto
+        (703€, unas 14 veces la mediana), dosis alta (700 mg), reciente (4,7 años) y con más tablas
+        en la ficha técnica. Solo 7 observaciones.
+  \item \textbf{Clúster 3:}\\
+        Agrupa el 9.7\%. El \textbf{más barato} (28€) y con dosis baja (15 mg). Lo que lo diferencia del
+        clúster 0 es el \textbf{número de tablas} (7 frente a 2) y que es algo más reciente (8 años).
+  \item \textbf{Clúster 4:}\\
+        Agrupa el 6\%. El único grupo con mediana de \textbf{no comercializado} y el \textbf{más reciente}
+        (2,4 años). PVP alto (187€) y más excipientes (4).
+\end{itemize}
+
+\subsection{HU-6: Indicadores de negocio en MySQL}
+Con la incorporación del último KPI, se crea una única query SQL con la creación de la
+vista con todos los KPIs.
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=MySQL, caption={Sentencia SQL para la vista vw\_medicamentos\_kpis.}, label={lst:hu6_sentencia_sql_vista}]
+CREATE OR REPLACE VIEW schezofrenia.vw_medicamentos_kpis AS
+SELECT
+    medicamentos.*,
+    ROUND((pvp - precio_de_referencia) / NULLIF(precio_de_referencia, 0) * 100, 2) AS desviacion_de_precio,
+    ROUND(palabras_seccion_4_4 / NULLIF(num_tablas, 0), 2) AS densidad_ficha_tecnica,
+    num_principios_activos + num_excipientes AS total_componentes,
+    pvp - precio_de_referencia AS margen_economico_absoluto,
+    DENSE_RANK() OVER (
+        PARTITION BY forma_farmaceutica_simplificada
+        ORDER BY pvp DESC
+    ) AS ranking_precio_por_forma
+FROM schezofrenia.medicamentos;
+\end{lstlisting}
+\end{minipage}
+
+Del primer kpi la conclusión es muy clara, no se pueden inferir indicadores significativos ya que
+en su gran mayoría ambos datos son idéntico, por otro lado lo que no son se deben a que sus
+valores son nulos y se rellenaron posteriormente (su nregistro no estaba en nomenclátor o
+precio de referencia no incluido), esto se verificó mediante la siguiente query:
+
+\noindent\begin{minipage}{\linewidth}
+\begin{lstlisting}[language=MySQL, caption={Consulta que verifica los medicamentos cuyas desviaciones de precio distintas de 0 cuando se encuentra en el nomenclátor.}, label={lst:hu6_consulta_verificacion_desviacion}]
+SELECT COUNT(*)
+FROM vw_medicamentos_kpis
+WHERE desviacion_de_precio <> 0
+AND tld_unknown = 0;
+\end{lstlisting}
+\end{minipage}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.22\textwidth]{figuras/hu6_resultado_verificacion.png}
+  \caption{Resultado de la consulta.}
+  \label{fig:hu6_resultado_verificacion}
+\end{figure}
+
+El resultado coincide con la diferencia de nulos entre pvp y precio de referencia cuando el
+medicamento está dentro de la base de datos de nomenclátor.
+
+La densidad de la ficha técnica muestra que la forma en que se presenta la información
+depende sobre todo del principio activo y de la forma farmacéutica. Los inyectables tienen
+fichas mucho más estructuradas (unas 377 palabras por tabla) que los comprimidos. El
+indicador también ayuda a diferenciar los clústeres de la HU-5: el clúster 1 tiene la densidad
+más alta y los clústeres 2, 3 y 4 las más bajas. La mediana (unas 924 palabras por tabla) es
+menor que la media (unas 1.042) porque unas pocas fichas con mucho texto y una sola tabla
+suben el promedio. Hay que interpretarlo con cautela: depende mucho más del número de
+tablas que del número de palabras.
+
+La vista permite consultar los KPI junto con el clúster de cada medicamento y puede servir
+como fuente para Power BI. El total de componentes ayuda a comparar la composición de los
+medicamentos y el margen identifica aquellos cuyo PVP difiere del precio de referencia.
+Algunos precios ausentes se rellenaron en el CSV de carga, por lo que los márgenes de esos
+registros deben interpretarse como diferencias calculadas con precios estimados.
+
+\end{document}
