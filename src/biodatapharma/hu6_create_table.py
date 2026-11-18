@@ -4,13 +4,13 @@ from biodatapharma.hu6_aux_functions import cargar_credenciales, conectar_sql, n
 
 DATABASE = nombre_base_de_datos()
 
+
 SENTENCIAS = [
     f"CREATE DATABASE IF NOT EXISTS {DATABASE}",
     f"USE {DATABASE}",
-    "DROP TABLE IF EXISTS medicamentos",
     """
-    CREATE TABLE medicamentos (
-        nregistro                        VARCHAR(20) PRIMARY KEY,
+    CREATE TABLE IF NOT EXISTS medicamentos (
+        nregistro                        VARCHAR(20),
         labcomercializador               TEXT,
         forma_farmaceutica_simplificada  TEXT,
         vias_administracion              TEXT,
@@ -29,13 +29,16 @@ SENTENCIAS = [
         dosis_es_concentracion           BOOLEAN,
         cluster                          INTEGER,
         precio_de_referencia             NUMERIC(10, 2),
-        num_principios_activos           INTEGER
+        num_principios_activos           INTEGER,
+        fecha_carga                      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (nregistro, fecha_carga)
     )
     """,
 ]
 
 
-def main() -> int:
+def create_table() -> int:
+    
     conn = None
     try:
         credenciales = cargar_credenciales()
@@ -43,7 +46,6 @@ def main() -> int:
         conn = conectar_sql(
             user=credenciales["USER_SQL"],
             password=credenciales["PASSWORD_SQL"],
-            db=DATABASE
         )
         cursor = conn.cursor()
         for sentencia in SENTENCIAS:
@@ -60,9 +62,4 @@ def main() -> int:
         if conn is not None and conn.is_connected():
             conn.close()
 
-    print("Tabla creada correctamente")
     return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())

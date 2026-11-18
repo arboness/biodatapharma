@@ -65,7 +65,7 @@ def extraer_dosis(texto: str) -> float:
     return numeros[0]
 
 
-def main() -> None:
+def clean_and_transform() -> int:
     """Limpia y transforma el dataset de la HU-3 y guarda las versiones sin escalar y escalada."""
     df = pd.read_excel(RUTA_ENTRADA)
     print("Dataset original:", df.shape)
@@ -147,8 +147,5 @@ def main() -> None:
     df[numericas] = RobustScaler().fit_transform(df[numericas])
 
     df.to_csv(RUTA_SALIDA, index=False)
-    print("Dataset final:", df.shape)
+    return 0
 
-
-if __name__ == "__main__":
-    main()

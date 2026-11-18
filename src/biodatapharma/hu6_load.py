@@ -2,6 +2,7 @@ from pathlib import Path
 import sys
 import mysql.connector
 import pandas as pd
+from datetime import datetime
 
 from biodatapharma.hu6_aux_functions import cargar_credenciales, conectar_sql, nombre_base_de_datos
 
@@ -91,12 +92,16 @@ def datos_faltantes():
 
     df.to_csv(RUTA_SALIDA, index=False)
     
-def main() -> int:
+def load_data() -> int:
     conn = None
     try:
         datos_faltantes()
         credenciales = cargar_credenciales()
         columnas, datos = preparar_datos()
+        
+        fecha_carga = datetime.now()
+        columnas = columnas + ["fecha_carga"]
+        datos = [fila + [fecha_carga] for fila in datos]
 
         cols = ", ".join(columnas)
         placeholders = ", ".join(["%s"] * len(columnas))
@@ -131,6 +136,3 @@ def main() -> int:
     print(f"Insertadas {len(datos)} filas en medicamentos")
     return 0
 
-
-if __name__ == "__main__":
-    sys.exit(main())

@@ -2,8 +2,10 @@ import requests
 import math
 from biodatapharma.hu1_aux_functions import extract_drug_details
 import pandas as pd
-from biodatapharma.constants import DISEASE_NAME, DATA_DIR
+from biodatapharma.constants import DISEASE_NAME, DATA_DIR, COLUMN_URL, HEADERS, HU1_FILE_NAME, HU2_FILE_NAME, HU3_FILE_NAME, NOMENCLATOR_COLUMNS, NOMENCLATOR_FILE_NAME
 from tqdm import tqdm
+
+from biodatapharma.hu2 import calc_metrics
 
 def pages_number(disease: str) -> int:
     """Calcula el número de páginas que se deben de obtener de la API para conseguir todos los registros de la enfermedad.
@@ -67,7 +69,7 @@ def extract_register_numbers(disease: str) -> list[str]:
         
     return nrecords    
 
-def drugs_to_xlsx(drug_register_numbers: list[str])->None:
+def drugs_to_xlsx(drug_register_numbers: list[str]):
     """Dado un listado de números de registro, se crea un xlsx con finromación relevante sobre ellos.
 
     Args:
@@ -77,18 +79,49 @@ def drugs_to_xlsx(drug_register_numbers: list[str])->None:
     
     drug_info_dicts = [] 
     for register_number in tqdm(drug_register_numbers, desc="Medicamentos"):
-        drug_info_dicts.append(extract_drug_details(register_number))
+        drug_dict = extract_drug_details(register_number)
+        if drug_dict is not None:
+            drug_info_dicts.append(drug_dict)
 
     df = pd.DataFrame(drug_info_dicts)
-    df.to_excel(DATA_DIR / f"hu1_{DISEASE_NAME}.xlsx", index=False)  
-    
-
+    df.to_excel(HU1_FILE_NAME, index=False)  
+    return df
      
-def main() -> None:
+def extract_and_export_register_numbers()-> None:
     nrecords = extract_register_numbers(disease=DISEASE_NAME)
-    drugs_to_xlsx(nrecords)
+    return drugs_to_xlsx(nrecords)
     
+def aggregated_metrics() -> None:
+    df = extract_and_export_register_numbers()
+    rows=[]
+    for url in tqdm(df[COLUMN_URL], desc="Urls"):
+        
+        resp = requests.get(url, headers=HEADERS)
+        resp.raise_for_status()
+        rows.append(calc_metrics(resp.text))
 
+    metricas = pd.DataFrame(rows, index=df.index)
+    df = df.join(metricas)
+    df.to_excel(HU2_FILE_NAME, index=False) 
+    
+    return df   
 
-if __name__ == "__main__":
-    main()
+def extract_nomenclator()->None:
+    df_nomenclator=pd.read_csv(NOMENCLATOR_FILE_NAME)
+    df_HU2= aggregated_metrics()
+    df_nomenclator_filtered = df_nomenclator[NOMENCLATOR_COLUMNS].copy()
+
+    df_HU3 = df_HU2.merge(
+        df_nomenclator_filtered,
+        left_on="cn",
+        right_on="Código Nacional",
+        how="left",
+    )
+    
+    df_HU3 = df_HU3.drop(columns=['Código Nacional'])
+
+    df_HU3.to_excel(HU3_FILE_NAME, index=False)   
+    
+    return 0
+    
+    

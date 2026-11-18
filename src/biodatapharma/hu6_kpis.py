@@ -3,7 +3,8 @@ from pathlib import Path
 import mysql.connector
 from dotenv import load_dotenv
 
-from biodatapharma.hu6_aux_functions import cargar_credenciales, conectar_sql, datos_faltantes, leer_sql, nombre_base_de_datos
+from biodatapharma.hu6_aux_functions import cargar_credenciales, conectar_sql, leer_sql, nombre_base_de_datos
+
 
 SQL_PATH = "src/biodatapharma/hu6_kpis.sql"
 
@@ -11,10 +12,9 @@ RAIZ = Path(__file__).resolve().parents[2]
 RUTA_DATOS = RAIZ / "data" / "hu4_esquizofrenia_limpio.csv"
 RUTA_SALIDA = RAIZ / "data" / "hu5_clusters.csv"
 
-def main()->int:
+def kpis()->int:
     try:
         
-        dict_credenciales = cargar_credenciales()
         credenciales = cargar_credenciales()
         db = nombre_base_de_datos()
         if db is None:
@@ -39,9 +39,6 @@ def main()->int:
     
     return 0
 
-
-if __name__ == "__main__":
-    main()
         
 
     

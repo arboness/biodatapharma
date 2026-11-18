@@ -4,6 +4,7 @@ import json
 from typing import Any 
 import pandas as pd
 import requests
+from tqdm import tqdm
  
 CIMA_MEDICAMENTO_URL = "https://cima.aemps.es/cima/rest/medicamento"
 
@@ -66,7 +67,7 @@ def _vias_administracion(vias: str | None) -> str | None:
         return None
     return ", ".join(v.get("nombre", "") for v in vias)
 
-def extract_drug_details(nrecord: str) -> dict:
+def extract_drug_details(nrecord: str) -> dict | None:
     """Obtiene todos los detalles de un medicamento que HU1 solicita. Hace uso de las funciones definidas previamente. Realiza una petición get 
        a la API pasando como parámetro el número de registro.
     Args:
@@ -75,13 +76,16 @@ def extract_drug_details(nrecord: str) -> dict:
     Returns:
         Un diccionario con todos los campos requeridos.
     """
-    resp = requests.get(
-        CIMA_MEDICAMENTO_URL,
-        params={"nregistro": nrecord},
-        timeout=10)
-    resp.raise_for_status()
-    data = resp.json()
- 
+    try:
+        resp = requests.get(
+            CIMA_MEDICAMENTO_URL,
+            params={"nregistro": nrecord},
+            timeout=10)
+        resp.raise_for_status()
+        data = resp.json()
+    except requests.RequestException as e:
+        tqdm.write(f"Saltando registro: {nrecord}.")
+        return None
     state = data.get("estado", {}) or {}
  
     return {

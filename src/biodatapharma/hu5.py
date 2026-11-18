@@ -31,7 +31,7 @@ COLUMNS = ['nregistro', 'labcomercializador', 'forma_farmaceutica_simplificada',
        'dosis_es_concentracion']
 
 
-def main() -> None:
+def cluster_kmeans() -> int:
  
     df = pd.read_csv(RUTA_DATOS_HU4)
     X = df.drop(columns=DROP_COLUMNS_TLD)
@@ -57,7 +57,6 @@ def main() -> None:
 
 
     df.to_csv(RUTA_SALIDA, index=False)
+    
+    return 0
  
- 
-if __name__ == "__main__":
-    main()

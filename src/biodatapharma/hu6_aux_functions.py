@@ -35,7 +35,7 @@ def nombre_base_de_datos() -> str:
         return None
     return bd
 
-def conectar_sql(user: str, password: str, db: str | None):
+def conectar_sql(user: str, password: str, db=None):
     """Abre una conexión con el servidor MySQL local.
 
     Args:
