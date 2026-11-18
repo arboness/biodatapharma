@@ -9,6 +9,7 @@ Salidas:  data/hu4_esquizofrenia_limpio.csv
           data/hu4_esquizofrenia_limpio_sin_escalar.csv
 """
 
+import logging
 import re
 
 import pandas as pd
@@ -20,6 +21,7 @@ RUTA_SALIDA = "data/hu4_esquizofrenia_limpio.csv"
 
 FECHA_REFERENCIA = pd.Timestamp.today().normalize()
 
+logger = logging.getLogger(__name__)
 
 # 5. Dosis: de texto a número en mg (o mg/ml)
 def extraer_dosis(texto: str) -> float:
@@ -147,5 +149,6 @@ def clean_and_transform() -> int:
     df[numericas] = RobustScaler().fit_transform(df[numericas])
 
     df.to_csv(RUTA_SALIDA, index=False)
-    return 0
+    logger.info("Dataset limpio guardado en %s (%d filas, %d columnas)", RUTA_SALIDA, *df.shape)
 
+    return 0

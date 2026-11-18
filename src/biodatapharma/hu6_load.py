@@ -121,20 +121,21 @@ def load_data() -> int:
         cursor.close()
         conn.commit()
     except FileNotFoundError as e:
-        print(f"ERROR AL CARGAR EL CSV: {e}")
+        logger.error("Error al cargar el CSV: %s", e)
         return 1
     except KeyError as e:
-        print(f"ERROR AL CARGAR LAS CREDENCIALES O COLUMNAS: {e}")
+        logger.error("Error al cargar las credenciales o columnas: falta la clave %s", e)
         return 2
     except mysql.connector.Error as e:
         if conn is not None and conn.is_connected():
             conn.rollback()
-        print(f"ERROR EN LA BASE DE DATOS: {e}")
+        logger.exception("Error en la base de datos: %s", e)
         return 3
     finally:
         if conn is not None and conn.is_connected():
             conn.close()
+            logger.debug("Conexión a MySQL cerrada")
 
-    print(f"Insertadas {len(datos)} filas en medicamentos")
+    logger.info("Insertadas %d filas en medicamentos", len(datos))
     return 0
 

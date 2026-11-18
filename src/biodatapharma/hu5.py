@@ -3,6 +3,7 @@ from pathlib import Path
 import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
+import logging
 
 """
     Tras realizar pruebas con diferentes configuraciones para kmeans en hu5.ipynb, se llega a la conclusión de que
@@ -31,21 +32,23 @@ COLUMNS = ['nregistro', 'labcomercializador', 'forma_farmaceutica_simplificada',
        'dosis_es_concentracion']
 
 
+
+
 def cluster_kmeans() -> int:
- 
+
     df = pd.read_csv(RUTA_DATOS_HU4)
     X = df.drop(columns=DROP_COLUMNS_TLD)
- 
+
     km = KMeans(n_clusters=NUM_CLUSTERS, n_init=N_INIT, random_state=RANDOM_STATE)
     etiquetas = km.fit_predict(X)
     etiquetas = km.fit_predict(X)
 
     conteo = pd.Series(etiquetas).value_counts().sort_index()
-    print(f"Número de clústeres: {km.n_clusters}")
-    print("Medicamentos por clúster:")
+    logger.info("Número de clústeres: %d", km.n_clusters)
+    logger.info("Medicamentos por clúster:")
     for cluster, n in conteo.items():
-        print(f"  Clúster {cluster}: {n} ({n / len(etiquetas):.1%})")
-        
+        logger.info("  Clúster %d: %d (%.1f%%)", cluster, n, 100 * n / len(etiquetas))
+
     df_clusters = df[["nregistro"]].assign(cluster=etiquetas)
     df_hu4 = pd.read_csv(RUTA_DATOS_HU4_SIN_ESCALAR)
 
@@ -55,8 +58,7 @@ def cluster_kmeans() -> int:
         left_on="nregistro",
     )
 
-
     df.to_csv(RUTA_SALIDA, index=False)
-    
+    logger.info("Clustering guardado en %s (%d filas)", RUTA_SALIDA, len(df))
+
     return 0
- 

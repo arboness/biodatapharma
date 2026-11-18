@@ -1,3 +1,5 @@
+import logging
+
 import requests
 import math
 from biodatapharma.hu1_aux_functions import extract_drug_details
@@ -6,6 +8,8 @@ from biodatapharma.constants import DISEASE_NAME, DATA_DIR, COLUMN_URL, HEADERS,
 from tqdm import tqdm
 
 from biodatapharma.hu2 import calc_metrics
+
+logger = logging.getLogger(__name__)
 
 def pages_number(disease: str) -> int:
     """Calcula el número de páginas que se deben de obtener de la API para conseguir todos los registros de la enfermedad.
@@ -87,28 +91,34 @@ def drugs_to_xlsx(drug_register_numbers: list[str]):
     df.to_excel(HU1_FILE_NAME, index=False)  
     return df
      
-def extract_and_export_register_numbers()-> None:
+def extract_and_export_register_numbers() -> None:
     nrecords = extract_register_numbers(disease=DISEASE_NAME)
-    return drugs_to_xlsx(nrecords)
-    
+    logger.info("Encontrados %d números de registro para '%s'", len(nrecords), DISEASE_NAME)
+    df = drugs_to_xlsx(nrecords)
+    logger.info("HU1 guardada en %s (%d medicamentos)", HU1_FILE_NAME, len(df))
+    return df
+
+
 def aggregated_metrics() -> None:
     df = extract_and_export_register_numbers()
-    rows=[]
+    rows = []
     for url in tqdm(df[COLUMN_URL], desc="Urls"):
-        
+
         resp = requests.get(url, headers=HEADERS)
         resp.raise_for_status()
         rows.append(calc_metrics(resp.text))
 
     metricas = pd.DataFrame(rows, index=df.index)
     df = df.join(metricas)
-    df.to_excel(HU2_FILE_NAME, index=False) 
-    
-    return df   
+    df.to_excel(HU2_FILE_NAME, index=False)
+    logger.info("HU2 guardada en %s (%d filas, %d columnas)", HU2_FILE_NAME, *df.shape)
 
-def extract_nomenclator()->None:
-    df_nomenclator=pd.read_csv(NOMENCLATOR_FILE_NAME)
-    df_HU2= aggregated_metrics()
+    return df
+
+
+def extract_nomenclator() -> None:
+    df_nomenclator = pd.read_csv(NOMENCLATOR_FILE_NAME)
+    df_HU2 = aggregated_metrics()
     df_nomenclator_filtered = df_nomenclator[NOMENCLATOR_COLUMNS].copy()
 
     df_HU3 = df_HU2.merge(
@@ -117,11 +127,14 @@ def extract_nomenclator()->None:
         right_on="Código Nacional",
         how="left",
     )
-    
-    df_HU3 = df_HU3.drop(columns=['Código Nacional'])
 
-    df_HU3.to_excel(HU3_FILE_NAME, index=False)   
-    
+    sin_match = df_HU3["Código Nacional"].isna().sum()
+    if sin_match:
+        logger.warning("%d medicamentos sin coincidencia en el Nomenclátor", sin_match)
+
+    df_HU3 = df_HU3.drop(columns=["Código Nacional"])
+
+    df_HU3.to_excel(HU3_FILE_NAME, index=False)
+    logger.info("HU3 guardada en %s (%d filas)", HU3_FILE_NAME, len(df_HU3))
+
     return 0
-    
-    
