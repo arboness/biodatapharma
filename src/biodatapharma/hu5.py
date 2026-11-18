@@ -5,6 +5,8 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 import logging
 
+from biodatapharma.constants import HU4_FILE_NAME_LIMPIO, HU4_FILE_NAME_SIN_ESCALAR, HU5_FILE_NAME
+
 """
     Tras realizar pruebas con diferentes configuraciones para kmeans en hu5.ipynb, se llega a la conclusión de que
     usar 5 clústers porporciona el mejor grado de:
@@ -14,10 +16,6 @@ import logging
 """
 
 RAIZ = Path(__file__).resolve().parents[2]
-RUTA_DATOS_HU4 = RAIZ / "data" / "hu4_esquizofrenia_limpio.csv"
-RUTA_DATOS_HU4_SIN_ESCALAR = RAIZ / "data" / "hu4_esquizofrenia_limpio_sin_escalar.csv"
-RUTA_SALIDA = RAIZ / "data" / "hu5_clusters.csv"
-
 
 DROP_COLUMNS_TLD = ["nregistro", "tld_unknown"]
 
@@ -33,10 +31,10 @@ COLUMNS = ['nregistro', 'labcomercializador', 'forma_farmaceutica_simplificada',
 
 
 
+logger = logging.getLogger(__name__)
 
 def cluster_kmeans() -> int:
-
-    df = pd.read_csv(RUTA_DATOS_HU4)
+    df = pd.read_csv(HU4_FILE_NAME_LIMPIO)
     X = df.drop(columns=DROP_COLUMNS_TLD)
 
     km = KMeans(n_clusters=NUM_CLUSTERS, n_init=N_INIT, random_state=RANDOM_STATE)
@@ -50,7 +48,7 @@ def cluster_kmeans() -> int:
         logger.info("  Clúster %d: %d (%.1f%%)", cluster, n, 100 * n / len(etiquetas))
 
     df_clusters = df[["nregistro"]].assign(cluster=etiquetas)
-    df_hu4 = pd.read_csv(RUTA_DATOS_HU4_SIN_ESCALAR)
+    df_hu4 = pd.read_csv(HU4_FILE_NAME_SIN_ESCALAR)
 
     df = df_clusters.merge(
         right=df_hu4[COLUMNS],
@@ -58,7 +56,7 @@ def cluster_kmeans() -> int:
         left_on="nregistro",
     )
 
-    df.to_csv(RUTA_SALIDA, index=False)
-    logger.info("Clustering guardado en %s (%d filas)", RUTA_SALIDA, len(df))
+    df.to_csv(HU5_FILE_NAME, index=False)
+    logger.info("Clustering guardado en %s (%d filas)", HU5_FILE_NAME, len(df))
 
     return 0

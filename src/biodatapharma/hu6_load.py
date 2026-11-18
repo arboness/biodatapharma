@@ -1,16 +1,12 @@
 import logging
-from pathlib import Path
-import sys
 import mysql.connector
 import pandas as pd
 from datetime import datetime
 
+from biodatapharma.constants import HU3_FILE_NAME, HU5_FILE_NAME, HU5_FILE_NAME_RECONSTRUIDO
 from biodatapharma.hu6_aux_functions import cargar_credenciales, conectar_sql, nombre_base_de_datos
 
-RAIZ = Path(__file__).resolve().parents[2]
-RUTA_SALIDA = RAIZ / "data" / "hu5_clusters_reconstruido.csv"
-RUTA_DATOS_HU3 = RAIZ / "data" / "hu3_esquizofrenia.xlsx"
-RUTA_DATOS_HU5 = RAIZ / "data" / "hu5_clusters.csv"
+
 
 BOOL_COLS = ["comercializado", "generico", "revocado", "tld_unknown", "dosis_es_concentracion",]
 INT_COLS = ["num_excipientes", "palabras_seccion_4_4", "num_tablas", "num_grave", "cluster", "num_principios_activos",]
@@ -38,7 +34,7 @@ def preparar_datos() -> tuple[list[str], list[list]]:
         TypeError: Si alguna columna de ``BOOL_COLS`` o ``INT_COLS`` contiene
             valores que no se pueden convertir a booleano o a entero.
     """
-    df = pd.read_csv(RUTA_SALIDA, dtype={"nregistro": str})
+    df = pd.read_csv(HU5_FILE_NAME_RECONSTRUIDO, dtype={"nregistro": str})
     
     df[BOOL_COLS] = df[BOOL_COLS].astype("boolean")
 
@@ -74,8 +70,8 @@ def datos_faltantes():
             ``Precio de referencia``, ``num_principios_activos``, ``pa_base`` o
             ``forma_farmaceutica_simplificada``).
     """
-    df_hu3 = pd.read_excel(RUTA_DATOS_HU3)
-    df_hu5 = pd.read_csv(RUTA_DATOS_HU5)
+    df_hu3 = pd.read_excel(HU3_FILE_NAME)
+    df_hu5 = pd.read_csv(HU5_FILE_NAME)
 
     df = df_hu5.merge(
         right=df_hu3[['nregistro','Precio de referencia', 'num_principios_activos']],
@@ -92,7 +88,7 @@ def datos_faltantes():
     df["precio_de_referencia"] = df["precio_de_referencia"].fillna(mediana_forma)
     df["precio_de_referencia"] = df["precio_de_referencia"].fillna(df["precio_de_referencia"].median())
 
-    df.to_csv(RUTA_SALIDA, index=False)
+    df.to_csv(HU5_FILE_NAME_RECONSTRUIDO, index=False)
     
 def load_data() -> int:
     conn = None

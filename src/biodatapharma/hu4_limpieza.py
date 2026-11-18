@@ -15,9 +15,7 @@ import re
 import pandas as pd
 from sklearn.preprocessing import RobustScaler
 
-RUTA_ENTRADA = "data/hu3_esquizofrenia.xlsx"
-RUTA_SALIDA_SIN_ESCALAR = "data/hu4_esquizofrenia_limpio_sin_escalar.csv"
-RUTA_SALIDA = "data/hu4_esquizofrenia_limpio.csv"
+from biodatapharma.constants import HU3_FILE_NAME, HU4_FILE_NAME_LIMPIO, HU4_FILE_NAME_SIN_ESCALAR
 
 FECHA_REFERENCIA = pd.Timestamp.today().normalize()
 
@@ -69,7 +67,7 @@ def extraer_dosis(texto: str) -> float:
 
 def clean_and_transform() -> int:
     """Limpia y transforma el dataset de la HU-3 y guarda las versiones sin escalar y escalada."""
-    df = pd.read_excel(RUTA_ENTRADA)
+    df = pd.read_excel(HU3_FILE_NAME)
     print("Dataset original:", df.shape)
 
     # 1. Duplicados: se conserva la presentación comercializada
@@ -132,7 +130,7 @@ def clean_and_transform() -> int:
 
     df = df.drop(columns=["labtitular"])
 
-    df.to_csv(RUTA_SALIDA_SIN_ESCALAR, index=False)
+    df.to_csv(HU4_FILE_NAME_SIN_ESCALAR, index=False)
 
     # One-hot
     df = pd.get_dummies(
@@ -148,7 +146,7 @@ def clean_and_transform() -> int:
                  "palabras_seccion_4_4", "num_tablas", "num_grave"]
     df[numericas] = RobustScaler().fit_transform(df[numericas])
 
-    df.to_csv(RUTA_SALIDA, index=False)
-    logger.info("Dataset limpio guardado en %s (%d filas, %d columnas)", RUTA_SALIDA, *df.shape)
+    df.to_csv(HU4_FILE_NAME_LIMPIO, index=False)
+    logger.info("Dataset limpio guardado en %s (%d filas, %d columnas)", HU4_FILE_NAME_LIMPIO, *df.shape)
 
     return 0

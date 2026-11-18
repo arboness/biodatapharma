@@ -5,13 +5,6 @@ from dotenv import load_dotenv
 from biodatapharma.hu6_aux_functions import cargar_credenciales, conectar_sql, leer_sql, nombre_base_de_datos
 import logging
 
-SQL_PATH = "src/biodatapharma/hu6_kpis.sql"
-
-RAIZ = Path(__file__).resolve().parents[2]
-RUTA_DATOS = RAIZ / "data" / "hu4_esquizofrenia_limpio.csv"
-RUTA_SALIDA = RAIZ / "data" / "hu5_clusters.csv"
-
-
 logger = logging.getLogger(__name__)
 
 

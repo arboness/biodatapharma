@@ -4,7 +4,6 @@ from biodatapharma.hu6_aux_functions import cargar_credenciales, conectar_sql, n
 
 DATABASE = nombre_base_de_datos()
 
-
 SENTENCIAS = [
     f"CREATE DATABASE IF NOT EXISTS {DATABASE}",
     f"USE {DATABASE}",
