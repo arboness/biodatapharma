@@ -1,3 +1,4 @@
+import logging
 from pathlib import Path
 import sys
 import mysql.connector
@@ -14,6 +15,7 @@ RUTA_DATOS_HU5 = RAIZ / "data" / "hu5_clusters.csv"
 BOOL_COLS = ["comercializado", "generico", "revocado", "tld_unknown", "dosis_es_concentracion",]
 INT_COLS = ["num_excipientes", "palabras_seccion_4_4", "num_tablas", "num_grave", "cluster", "num_principios_activos",]
 
+logger = logging.getLogger(__name__)
 
 def preparar_datos() -> tuple[list[str], list[list]]:
     """Carga el CSV reconstruido y lo prepara para insertarlo en MySQL.

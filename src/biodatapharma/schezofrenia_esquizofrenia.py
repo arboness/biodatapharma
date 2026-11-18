@@ -1,9 +1,11 @@
 
-
-
+import logging
 
 from biodatapharma import hu1, hu2, hu3, hu4_limpieza, hu5, hu6_create_table, hu6_kpis, hu6_load
+from biodatapharma.constants import LOG_FILE
 
+logging.basicConfig(filename=LOG_FILE, level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
 def main():
     logging.info(f"fINALIZADO ejecución de: {script_name}")
     if hu1.extract_nomenclator() != 0:

@@ -3,7 +3,8 @@ from pathlib import Path
 
 DISEASE_NAME = "esquizofrenia"
 DATA_DIR = Path("data")
-
+LOG_DIR = Path(__file__).resolve().parents[1] / "log"
+LOG_FILE = LOG_DIR / "schezofrenia_esquizofrenia.log"
 HU1_FILE_NAME = DATA_DIR / "hu1_esquizofrenia.xlsx"          
 HU2_FILE_NAME = DATA_DIR / "hu2_esquizofrenia.xlsx"
 HU3_FILE_NAME = DATA_DIR / "hu3_esquizofrenia.xlsx"
