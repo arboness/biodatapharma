@@ -1,12 +1,12 @@
-import time
-from datetime import datetime, timezone
-import json
+
 from typing import Any 
 import pandas as pd
 import requests
 from tqdm import tqdm
+
+from biodatapharma.constants import CIMA_MEDICAMENTO_URL
  
-CIMA_MEDICAMENTO_URL = "https://cima.aemps.es/cima/rest/medicamento"
+
 
 def _epoch_ms_to_date(epoch_ms: int | None) -> str | None:
     """Pasa una fecha de formato ms a datetime.

@@ -2,11 +2,11 @@ import logging
 
 import requests
 import math
-from biodatapharma.hu1_aux_functions import extract_drug_details
 import pandas as pd
-from biodatapharma.constants import DISEASE_NAME, DATA_DIR, COLUMN_URL, HEADERS, HU1_FILE_NAME, HU2_FILE_NAME, HU3_FILE_NAME, NOMENCLATOR_COLUMNS, NOMENCLATOR_FILE_NAME
+from biodatapharma.constants import DISEASE_NAME, COLUMN_URL, HEADERS, HU1_FILE_NAME, HU2_FILE_NAME, HU3_FILE_NAME, NOMENCLATOR_COLUMNS, NOMENCLATOR_FILE_NAME
 from tqdm import tqdm
 
+from biodatapharma.hu1_aux_functions import extract_drug_details
 from biodatapharma.hu2 import calc_metrics
 
 logger = logging.getLogger(__name__)
@@ -119,8 +119,9 @@ def aggregated_metrics() -> None:
 def extract_nomenclator() -> None:
     df_nomenclator = pd.read_csv(NOMENCLATOR_FILE_NAME)
     df_HU2 = aggregated_metrics()
+    df_HU2 = pd.read_excel(HU2_FILE_NAME)
     df_nomenclator_filtered = df_nomenclator[NOMENCLATOR_COLUMNS].copy()
-
+    df_HU2['cn'] = pd.to_numeric(df_HU2["cn"], errors='coerce').astype("Int64")
     df_HU3 = df_HU2.merge(
         df_nomenclator_filtered,
         left_on="cn",

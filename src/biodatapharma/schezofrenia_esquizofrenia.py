@@ -2,7 +2,7 @@
 import logging
 import sys
 
-from biodatapharma import hu1, hu2, hu3, hu4_limpieza, hu5, hu6_create_table, hu6_kpis, hu6_load
+from biodatapharma import hu1_3, hu4, hu5, hu6_create_table, hu6_kpis, hu6_load
 from biodatapharma.constants import LOG_FILE
 
 logging.basicConfig(
@@ -18,12 +18,12 @@ logger = logging.getLogger(__name__)
 def main() -> int:
     logger.info("Iniciando ejecución de: schezofrenia_esquizofrenia.py")
 
-    if hu1.extract_nomenclator() != 0:
+    if hu1_3.extract_nomenclator() != 0:
         logger.error("Fallo en HU1-HU3 (extracción y nomenclátor)")
         return 1
     logger.info("HU1-HU3 completadas")
 
-    if hu4_limpieza.clean_and_transform() != 0:
+    if hu4.clean_and_transform() != 0:
         logger.error("Fallo en HU4 (limpieza y transformación)")
         return 2
     logger.info("HU4 completada")

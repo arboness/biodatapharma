@@ -11,7 +11,6 @@ Salidas:  data/hu4_esquizofrenia_limpio.csv
 
 import logging
 import re
-
 import pandas as pd
 from sklearn.preprocessing import RobustScaler
 

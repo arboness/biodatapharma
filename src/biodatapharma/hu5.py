@@ -2,7 +2,6 @@ from pathlib import Path
 
 import pandas as pd
 from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
 import logging
 
 from biodatapharma.constants import HU4_FILE_NAME_LIMPIO, HU4_FILE_NAME_SIN_ESCALAR, HU5_FILE_NAME

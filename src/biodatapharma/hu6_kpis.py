@@ -2,6 +2,7 @@ from pathlib import Path
 
 import mysql.connector
 from dotenv import load_dotenv
+from biodatapharma.constants import SQL_PATH
 from biodatapharma.hu6_aux_functions import cargar_credenciales, conectar_sql, leer_sql, nombre_base_de_datos
 import logging
 

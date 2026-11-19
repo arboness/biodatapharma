@@ -1,9 +1,5 @@
 import re
-import pandas as pd
-import requests
 from bs4 import BeautifulSoup
-from tqdm import tqdm
-from biodatapharma.constants import DATA_DIR
 
 
 def words_section(soup: BeautifulSoup, section: str)->int:
