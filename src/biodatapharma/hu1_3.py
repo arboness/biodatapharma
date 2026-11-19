@@ -11,6 +11,8 @@ from biodatapharma.hu2 import calc_metrics
 
 logger = logging.getLogger(__name__)
 
+METRICAS_VACIAS = {"palabras_seccion_4_4": None, "num_tablas": None, "num_grave": None}
+
 def pages_number(disease: str) -> int:
     """Calcula el número de páginas que se deben de obtener de la API para conseguir todos los registros de la enfermedad.
 
@@ -103,10 +105,14 @@ def aggregated_metrics() -> None:
     df = extract_and_export_register_numbers()
     rows = []
     for url in tqdm(df[COLUMN_URL], desc="Urls"):
-
-        resp = requests.get(url, headers=HEADERS)
-        resp.raise_for_status()
-        rows.append(calc_metrics(resp.text))
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=10)
+            resp.raise_for_status()
+            rows.append(calc_metrics(resp.text))
+        except Exception as e:
+            fallos += 1
+            logger.warning("Ficha omitida (%s): %s", url, e)
+            rows.append(METRICAS_VACIAS.copy())
 
     metricas = pd.DataFrame(rows, index=df.index)
     df = df.join(metricas)
