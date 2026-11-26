@@ -10,6 +10,7 @@ SENTENCIAS = [
     """
     CREATE TABLE IF NOT EXISTS medicamentos (
         nregistro                        VARCHAR(20),
+        nombre                           VARCHAR(255) NOT NULL DEFAULT 'medicamento_desconocido',                             
         labcomercializador               TEXT,
         forma_farmaceutica_simplificada  TEXT,
         vias_administracion              TEXT,

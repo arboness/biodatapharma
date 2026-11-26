@@ -3,11 +3,14 @@
 <!-- build 20263.26.1110.1931                               -->
 <workbook _.fcp.WorkbookFingerprinting.true...author-id='2157d74de78489ec97c991852a98d8515e8b64c0d3ab0a16318eb5f124be9dc0' _.fcp.WorkbookFingerprinting.true...creator-author-id='2157d74de78489ec97c991852a98d8515e8b64c0d3ab0a16318eb5f124be9dc0' _.fcp.WorkbookFingerprinting.true...creator-license-type='paid' _.fcp.WorkbookFingerprinting.true...creator-machine-id='2157d74de78489ec97c991852a98d8515e8b64c0d3ab0a16318eb5f124be9dc0' _.fcp.WorkbookFingerprinting.true...license-type='paid' _.fcp.WorkbookFingerprinting.true...machine-id='2157d74de78489ec97c991852a98d8515e8b64c0d3ab0a16318eb5f124be9dc0' original-version='18.1' source-build='2026.3.1 (20263.26.1110.1931)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
     <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
     <MarkAnimation />
     <ObjectModelEncapsulateLegacy />
     <ObjectModelTableType />
     <SchemaViewerObjectModel />
+    <SetMembershipControl />
     <SheetIdentifierTracking />
     <WindowsPersistSimpleIdentifiers />
     <_.fcp.WorkbookFingerprinting.true...WorkbookFingerprinting />
@@ -17,6 +20,12 @@
     <preference name='ui.shelf.height' value='26' />
   </preferences>
   <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='p_Titulo' datatype='string' name='[Parámetro 1601990715244546]' param-domain-type='any' role='measure' type='nominal' value='&quot;&quot;'>
+        <calculation class='tableau' formula='&quot;&quot;' />
+      </column>
+    </datasource>
     <datasource caption='medicamentos (schezofrenia)' inline='true' name='federated.0jnjxuk0ekf28y1fvaiih0pggbmd' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -43,7 +52,7 @@
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
               <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>labcomercializador</remote-name>
@@ -62,7 +71,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>forma_farmaceutica_simplificada</remote-name>
@@ -81,7 +90,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>vias_administracion</remote-name>
@@ -100,7 +109,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>comercializado</remote-name>
@@ -117,7 +126,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>generico</remote-name>
@@ -134,7 +143,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>num_excipientes</remote-name>
@@ -151,7 +160,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>palabras_seccion_4_4</remote-name>
@@ -168,7 +177,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>num_tablas</remote-name>
@@ -185,7 +194,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>num_grave</remote-name>
@@ -202,7 +211,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>pvp</remote-name>
@@ -220,7 +229,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DECIMAL&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>antiguedad_anios</remote-name>
@@ -237,7 +246,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>revocado</remote-name>
@@ -254,7 +263,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>tld_unknown</remote-name>
@@ -271,7 +280,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>pa_base</remote-name>
@@ -290,7 +299,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>dosis_mg</remote-name>
@@ -307,7 +316,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>dosis_es_concentracion</remote-name>
@@ -324,7 +333,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>cluster</remote-name>
@@ -341,7 +350,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>precio_de_referencia</remote-name>
@@ -359,7 +368,7 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DECIMAL&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>num_principios_activos</remote-name>
@@ -376,7 +385,26 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>url_foto_materiales</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[url_foto_materiales]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>url_foto_materiales</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>262140</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='296' flag='3' name='LROOT_S1' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>fecha_carga</remote-name>
@@ -384,7 +412,7 @@
             <local-name>[fecha_carga]</local-name>
             <parent-name>[medicamentos]</parent-name>
             <remote-alias>fecha_carga</remote-alias>
-            <ordinal>21</ordinal>
+            <ordinal>22</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Year</aggregation>
             <contains-null>false</contains-null>
@@ -392,12 +420,12 @@
               <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
               <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
             </attributes>
-            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+            <object-id>[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]</object-id>
           </metadata-record>
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
-      <column aggregation='Sum' caption='Tramo PVP' datatype='real' name='[Calculation_1601990031622144]' role='dimension' type='ordinal'>
+      <column caption='Tramo PVP' datatype='real' name='[Calculation_1601990031622144]' role='dimension' type='ordinal'>
         <calculation class='tableau' formula='ROUND(POWER(10, FLOOR(LOG([pvp]) * 4) / 4), 0)' />
       </column>
       <column aggregation='None' caption='Pvp agrupacion' datatype='integer' name='[Pvp (agrupación) 2]' role='dimension' type='ordinal'>
@@ -407,6 +435,7 @@
         <calculation class='bin' decimals='2' formula='[pvp]' peg='0' size='200' />
       </column>
       <column caption='medicamentos' datatype='table' name='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' role='measure' type='quantitative' />
+      <column caption='medicamentos1' datatype='table' name='[__tableau_internal_object_id__].[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]' role='measure' type='quantitative' />
       <column caption='Antiguedad Anios' datatype='real' name='[antiguedad_anios]' role='measure' type='quantitative' />
       <column aggregation='Sum' caption='Cluster' datatype='integer' name='[cluster]' role='dimension' type='ordinal' />
       <column caption='Comercializado' datatype='integer' name='[comercializado]' role='measure' type='quantitative' />
@@ -427,6 +456,7 @@
       <column aggregation='Sum' caption='Pvp' datatype='real' name='[pvp]' role='dimension' type='quantitative' />
       <column caption='Revocado' datatype='integer' name='[revocado]' role='measure' type='quantitative' />
       <column caption='Tld Unknown' datatype='integer' name='[tld_unknown]' role='measure' type='quantitative' />
+      <column caption='Url Foto Materiales' datatype='string' name='[url_foto_materiales]' role='dimension' type='nominal' />
       <column caption='Vias Administracion' datatype='string' name='[vias_administracion]' role='dimension' type='nominal' />
       <column-instance column='[Calculation_1601990031622144]' derivation='None' name='[none:Calculation_1601990031622144:ok]' pivot='key' type='ordinal' />
       <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
@@ -539,7 +569,7 @@
       </field-sort-info>
       <object-graph>
         <objects>
-          <object caption='medicamentos' id='medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5'>
+          <object caption='medicamentos1' id='medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763'>
             <properties context=''>
               <relation connection='mysql.1qezvye01359yg134zvdu0frm3uy' name='medicamentos' table='[medicamentos]' type='table' />
             </properties>
@@ -563,8 +593,8 @@
             <datasource caption='medicamentos (schezofrenia)' name='federated.0jnjxuk0ekf28y1fvaiih0pggbmd' />
           </datasources>
           <datasource-dependencies datasource='federated.0jnjxuk0ekf28y1fvaiih0pggbmd'>
-            <column-instance column='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]' pivot='key' type='quantitative' />
-            <column caption='medicamentos' datatype='table' name='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' role='measure' type='quantitative' />
+            <column-instance column='[__tableau_internal_object_id__].[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763:qk]' pivot='key' type='quantitative' />
+            <column caption='medicamentos1' datatype='table' name='[__tableau_internal_object_id__].[medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763]' role='measure' type='quantitative' />
             <column aggregation='Sum' caption='Cluster' datatype='integer' name='[cluster]' role='dimension' type='ordinal' />
             <column-instance column='[cluster]' derivation='None' name='[none:cluster:ok]' pivot='key' type='ordinal' />
           </datasource-dependencies>
@@ -579,7 +609,7 @@
             <mark class='Automatic' />
           </pane>
         </panes>
-        <rows>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]</rows>
+        <rows>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[__tableau_internal_object_id__].[cnt:medicamentos_5F0BA6DC9FCE4F649A9FE17E7D828763:qk]</rows>
         <cols>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:cluster:ok]</cols>
       </table>
       <simple-id uuid='{2083B357-00F5-406E-9B57-D27D042C478E}' />
@@ -598,7 +628,7 @@
             <datasource caption='medicamentos (schezofrenia)' name='federated.0jnjxuk0ekf28y1fvaiih0pggbmd' />
           </datasources>
           <datasource-dependencies datasource='federated.0jnjxuk0ekf28y1fvaiih0pggbmd'>
-            <column aggregation='Sum' caption='Tramo PVP' datatype='real' name='[Calculation_1601990031622144]' role='dimension' type='ordinal'>
+            <column caption='Tramo PVP' datatype='real' name='[Calculation_1601990031622144]' role='dimension' type='ordinal'>
               <calculation class='tableau' formula='ROUND(POWER(10, FLOOR(LOG([pvp]) * 4) / 4), 0)' />
             </column>
             <column-instance column='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]' pivot='key' type='quantitative' />
@@ -632,7 +662,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run>Total de medicamentos&#10;</run>
+            <run>Æ&#10;</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -659,9 +689,9 @@
             </encodings>
             <customized-label>
               <formatted-text>
-                <run bold='true' fontsize='36'>Total de medicamentos:</run>
+                <run bold='true' fontsize='14'>Total de medicamentos:</run>
                 <run>Æ&#10;</run>
-                <run fontcolor='#4e79a7' fontsize='36'><![CDATA[<[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]>]]></run>
+                <run fontcolor='#4e79a7' fontsize='14'><![CDATA[<[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]>]]></run>
               </formatted-text>
             </customized-label>
             <style>
@@ -689,7 +719,13 @@
             <view>
               <breakdown value='auto' />
             </view>
-            <mark class='Automatic' />
+            <mark class='Shape' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
           </pane>
         </panes>
         <rows />
@@ -698,6 +734,99 @@
       <simple-id uuid='{D1104E0D-79A5-4432-847F-DF8A00F71D0D}' />
     </worksheet>
   </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='8' param='horz' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='6' type-v2='layout-basic' w='49200' x='800' y='1000'>
+              <zone h='49000' id='3' name='Hoja 1' w='49200' x='800' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#444444' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49000' id='5' name='Hoja 2' w='49200' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#444444' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='492' h='98000' id='7' is-fixed='true' param='vert' type-v2='layout-flow' w='49200' x='50000' y='1000'>
+              <zone fixed-size='441' h='56125' id='10' is-fixed='true' name='Hoja 3' w='49200' x='50000' y='1000'>
+                <layout-cache fixed-size-w='280' type-h='fixed' type-w='fixed' />
+                <zone-style>
+                  <format attr='border-color' value='#444444' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#444444' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='900' minheight='900' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='14' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='13' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='49000' id='5' is-fixed='true' name='Hoja 2' w='49200' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#444444' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='56125' id='10' is-fixed='true' name='Hoja 3' w='49200' x='50000' y='1000'>
+                  <layout-cache fixed-size-w='280' type-h='fixed' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#444444' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='3' is-fixed='true' name='Hoja 1' w='49200' x='800' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#444444' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#444444' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{D28346E1-F95A-46C6-BF9F-240FEB0A5A31}' />
+    </dashboard>
+  </dashboards>
   <windows saved-dpi-scale-factor='1.25' source-height='37'>
     <window class='worksheet' name='Hoja 1'>
       <cards>
@@ -776,7 +905,7 @@
     <window class='worksheet' maximized='true' name='Hoja 4'>
       <cards>
         <edge name='left'>
-          <strip size='160'>
+          <strip size='100'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -793,8 +922,26 @@
             <card type='title' />
           </strip>
         </edge>
+        <edge name='right'>
+          <strip size='172'>
+            <card mode='type_in' param='[Parameters].[Parámetro 1601990715244546]' type='parameter' />
+          </strip>
+        </edge>
       </cards>
       <simple-id uuid='{7158B293-6CD1-43D5-8672-E2BC8CDEF55A}' />
+    </window>
+    <window class='dashboard' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Hoja 1'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Hoja 2'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Hoja 3' />
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{AD2D71F6-359C-4118-9BA4-E45460E6DD4E}' />
     </window>
   </windows>
 </workbook>

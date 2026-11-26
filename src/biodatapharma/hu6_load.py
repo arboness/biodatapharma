@@ -74,7 +74,7 @@ def datos_faltantes():
     df_hu5 = pd.read_csv(HU5_FILE_NAME)
 
     df = df_hu5.merge(
-        right=df_hu3[['nregistro','Precio de referencia', 'num_principios_activos', 'url_foto_materiales']],
+        right=df_hu3[['nregistro','Precio de referencia', 'num_principios_activos', 'url_foto_materiales', 'nombre']],
         right_on="nregistro",
         left_on="nregistro",
     )
@@ -83,6 +83,7 @@ def datos_faltantes():
     mediana_pa_forma = df.groupby(["pa_base", "forma_farmaceutica_simplificada"])["precio_de_referencia"].transform("median")
     mediana_forma = df.groupby("forma_farmaceutica_simplificada")["precio_de_referencia"].transform("median")
     df['url_foto_materiales'] = df['url_foto_materiales'].fillna(PLACEHOLDER_URL)
+
 
     df["precio_de_referencia"] = df["precio_de_referencia"].fillna(mediana_pa_forma)
     df["precio_de_referencia"] = df["precio_de_referencia"].fillna(mediana_forma)

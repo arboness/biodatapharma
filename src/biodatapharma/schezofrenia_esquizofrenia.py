@@ -24,13 +24,13 @@ def main() -> int:
     logger.info("HU1-HU3 completadas")
 
     if hu4.clean_and_transform() != 0:
-        logger.error("Fallo en HU4 (limpieza y transformación)")
-        return 2
+       logger.error("Fallo en HU4 (limpieza y transformación)")
+       return 2
     logger.info("HU4 completada")
 
     if hu5.cluster_kmeans() != 0:
-        logger.error("Fallo en HU5 (clustering)")
-        return 3
+      logger.error("Fallo en HU5 (clustering)")
+      return 3
     logger.info("HU5 completada")
 
     if hu6_create_table.create_table() != 0:
