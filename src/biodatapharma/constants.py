@@ -33,6 +33,8 @@ HU4_FILE_NAME_LIMPIO = DATA_DIR / "hu4_esquizofrenia_limpio.csv"
 HU5_FILE_NAME = DATA_DIR / "hu5_clusters.csv"
 HU5_FILE_NAME_RECONSTRUIDO = DATA_DIR / "hu5_clusters_reconstruido.csv"
 
+PLACEHOLDER_URL = 'https://raw.githubusercontent.com/arboness/biodatapharma/master/assets/placeholder.png'
+
 SQL_PATH = Path(__file__).resolve().parents[2] / "sql" / "hu6_kpis.sql"
 
 

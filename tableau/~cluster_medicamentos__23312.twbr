@@ -1,0 +1,800 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20263.26.1110.1931                               -->
+<workbook _.fcp.WorkbookFingerprinting.true...author-id='2157d74de78489ec97c991852a98d8515e8b64c0d3ab0a16318eb5f124be9dc0' _.fcp.WorkbookFingerprinting.true...creator-author-id='2157d74de78489ec97c991852a98d8515e8b64c0d3ab0a16318eb5f124be9dc0' _.fcp.WorkbookFingerprinting.true...creator-license-type='paid' _.fcp.WorkbookFingerprinting.true...creator-machine-id='2157d74de78489ec97c991852a98d8515e8b64c0d3ab0a16318eb5f124be9dc0' _.fcp.WorkbookFingerprinting.true...license-type='paid' _.fcp.WorkbookFingerprinting.true...machine-id='2157d74de78489ec97c991852a98d8515e8b64c0d3ab0a16318eb5f124be9dc0' original-version='18.1' source-build='2026.3.1 (20263.26.1110.1931)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+    <_.fcp.WorkbookFingerprinting.true...WorkbookFingerprinting />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='medicamentos (schezofrenia)' inline='true' name='federated.0jnjxuk0ekf28y1fvaiih0pggbmd' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='localhost' name='mysql.1qezvye01359yg134zvdu0frm3uy'>
+            <connection class='mysql' dbname='schezofrenia' odbc-native-protocol='' one-time-sql='' port='3306' server='localhost' source-charset='' username='root' />
+          </named-connection>
+        </named-connections>
+        <relation connection='mysql.1qezvye01359yg134zvdu0frm3uy' name='medicamentos' table='[medicamentos]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>nregistro</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[nregistro]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>nregistro</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>20</width>
+            <contains-null>false</contains-null>
+            <collation charset='296' flag='3' name='LROOT_S1' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>labcomercializador</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[labcomercializador]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>labcomercializador</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>262140</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='296' flag='3' name='LROOT_S1' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>forma_farmaceutica_simplificada</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[forma_farmaceutica_simplificada]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>forma_farmaceutica_simplificada</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>262140</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='296' flag='3' name='LROOT_S1' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>vias_administracion</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[vias_administracion]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>vias_administracion</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>262140</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='296' flag='3' name='LROOT_S1' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>comercializado</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[comercializado]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>comercializado</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>generico</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[generico]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>generico</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_excipientes</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[num_excipientes]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>num_excipientes</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>palabras_seccion_4_4</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[palabras_seccion_4_4]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>palabras_seccion_4_4</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_tablas</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[num_tablas]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>num_tablas</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_grave</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[num_grave]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>num_grave</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pvp</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[pvp]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>pvp</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <scale>2</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DECIMAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>antiguedad_anios</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[antiguedad_anios]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>antiguedad_anios</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>revocado</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[revocado]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>revocado</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tld_unknown</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[tld_unknown]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>tld_unknown</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pa_base</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[pa_base]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>pa_base</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>262140</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='296' flag='3' name='LROOT_S1' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dosis_mg</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[dosis_mg]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>dosis_mg</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dosis_es_concentracion</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[dosis_es_concentracion]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>dosis_es_concentracion</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cluster</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[cluster]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>cluster</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>precio_de_referencia</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[precio_de_referencia]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>precio_de_referencia</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <scale>2</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DECIMAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_principios_activos</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[num_principios_activos]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>num_principios_activos</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>fecha_carga</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[fecha_carga]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>fecha_carga</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='Sum' caption='Tramo PVP' datatype='real' name='[Calculation_1601990031622144]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='ROUND(POWER(10, FLOOR(LOG([pvp]) * 4) / 4), 0)' />
+      </column>
+      <column aggregation='None' caption='Pvp agrupacion' datatype='integer' name='[Pvp (agrupación) 2]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='1' formula='[pvp]' peg='0' size='30' />
+      </column>
+      <column aggregation='None' caption='Pvp (agrupación)' datatype='integer' name='[Pvp (agrupación)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='2' formula='[pvp]' peg='0' size='200' />
+      </column>
+      <column caption='medicamentos' datatype='table' name='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' role='measure' type='quantitative' />
+      <column caption='Antiguedad Anios' datatype='real' name='[antiguedad_anios]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Cluster' datatype='integer' name='[cluster]' role='dimension' type='ordinal' />
+      <column caption='Comercializado' datatype='integer' name='[comercializado]' role='measure' type='quantitative' />
+      <column caption='Dosis Es Concentracion' datatype='integer' name='[dosis_es_concentracion]' role='measure' type='quantitative' />
+      <column caption='Dosis Mg' datatype='real' name='[dosis_mg]' role='measure' type='quantitative' />
+      <column caption='Fecha Carga' datatype='datetime' name='[fecha_carga]' role='dimension' type='ordinal' />
+      <column caption='Forma Farmaceutica Simplificada' datatype='string' name='[forma_farmaceutica_simplificada]' role='dimension' type='nominal' />
+      <column caption='Generico' datatype='integer' name='[generico]' role='measure' type='quantitative' />
+      <column caption='Labcomercializador' datatype='string' name='[labcomercializador]' role='dimension' type='nominal' />
+      <column caption='Nregistro' datatype='string' name='[nregistro]' role='dimension' type='nominal' />
+      <column caption='Num Excipientes' datatype='integer' name='[num_excipientes]' role='measure' type='quantitative' />
+      <column caption='Num Grave' datatype='integer' name='[num_grave]' role='measure' type='quantitative' />
+      <column caption='Num Principios Activos' datatype='integer' name='[num_principios_activos]' role='measure' type='quantitative' />
+      <column caption='Num Tablas' datatype='integer' name='[num_tablas]' role='measure' type='quantitative' />
+      <column caption='Pa Base' datatype='string' name='[pa_base]' role='dimension' type='nominal' />
+      <column caption='Palabras Seccion 4 4' datatype='integer' name='[palabras_seccion_4_4]' role='measure' type='quantitative' />
+      <column caption='Precio De Referencia' datatype='real' name='[precio_de_referencia]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Pvp' datatype='real' name='[pvp]' role='dimension' type='quantitative' />
+      <column caption='Revocado' datatype='integer' name='[revocado]' role='measure' type='quantitative' />
+      <column caption='Tld Unknown' datatype='integer' name='[tld_unknown]' role='measure' type='quantitative' />
+      <column caption='Vias Administracion' datatype='string' name='[vias_administracion]' role='dimension' type='nominal' />
+      <column-instance column='[Calculation_1601990031622144]' derivation='None' name='[none:Calculation_1601990031622144:ok]' pivot='key' type='ordinal' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Calculation_1601990031622144:ok]' type='palette'>
+            <map to='#499894'>
+              <bucket>100.0</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>1.0</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>10.0</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>1000.0</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>177.82794100389228</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>17.782794100389228</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>56.0</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>1.7782794100389228</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>18.0</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>31.622776601683793</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>2.0</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>3.0</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>32.0</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>178.0</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>316.0</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>316.22776601683796</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>56.234132519034908</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>3.1622776601683795</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>6.0</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>562.0</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>562.34132519034904</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>5.6234132519034912</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;España&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='nregistro' />
+        <field-sort-custom-order field='labcomercializador' />
+        <field-sort-custom-order field='forma_farmaceutica_simplificada' />
+        <field-sort-custom-order field='vias_administracion' />
+        <field-sort-custom-order field='comercializado' />
+        <field-sort-custom-order field='generico' />
+        <field-sort-custom-order field='num_excipientes' />
+        <field-sort-custom-order field='palabras_seccion_4_4' />
+        <field-sort-custom-order field='num_tablas' />
+        <field-sort-custom-order field='num_grave' />
+        <field-sort-custom-order field='pvp' />
+        <field-sort-custom-order field='Calculation_1601990031622144' />
+        <field-sort-custom-order field='antiguedad_anios' />
+        <field-sort-custom-order field='revocado' />
+        <field-sort-custom-order field='tld_unknown' />
+        <field-sort-custom-order field='pa_base' />
+        <field-sort-custom-order field='dosis_mg' />
+        <field-sort-custom-order field='dosis_es_concentracion' />
+        <field-sort-custom-order field='cluster' />
+        <field-sort-custom-order field='precio_de_referencia' />
+        <field-sort-custom-order field='num_principios_activos' />
+        <field-sort-custom-order field='fecha_carga' />
+        <field-sort-custom-order field='Geometry (generated)' />
+        <field-sort-custom-order field='Latitude (generated)' />
+        <field-sort-custom-order field='Longitude (generated)' />
+        <field-sort-custom-order field='Pvp (agrupación)' />
+        <field-sort-custom-order field='Pvp (agrupación) 2' />
+        <field-sort-custom-order field=':Measure Names' />
+        <field-sort-custom-order field='Multiple Values' />
+      </field-sort-info>
+      <object-graph>
+        <objects>
+          <object caption='medicamentos' id='medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5'>
+            <properties context=''>
+              <relation connection='mysql.1qezvye01359yg134zvdu0frm3uy' name='medicamentos' table='[medicamentos]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Hoja 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>Medicamentos por cluster</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='medicamentos (schezofrenia)' name='federated.0jnjxuk0ekf28y1fvaiih0pggbmd' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0jnjxuk0ekf28y1fvaiih0pggbmd'>
+            <column-instance column='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]' pivot='key' type='quantitative' />
+            <column caption='medicamentos' datatype='table' name='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' role='measure' type='quantitative' />
+            <column aggregation='Sum' caption='Cluster' datatype='integer' name='[cluster]' role='dimension' type='ordinal' />
+            <column-instance column='[cluster]' derivation='None' name='[none:cluster:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]</rows>
+        <cols>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:cluster:ok]</cols>
+      </table>
+      <simple-id uuid='{2083B357-00F5-406E-9B57-D27D042C478E}' />
+    </worksheet>
+    <worksheet name='Hoja 2'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true'>Número de medicamentos por precio</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='medicamentos (schezofrenia)' name='federated.0jnjxuk0ekf28y1fvaiih0pggbmd' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0jnjxuk0ekf28y1fvaiih0pggbmd'>
+            <column aggregation='Sum' caption='Tramo PVP' datatype='real' name='[Calculation_1601990031622144]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='ROUND(POWER(10, FLOOR(LOG([pvp]) * 4) / 4), 0)' />
+            </column>
+            <column-instance column='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]' pivot='key' type='quantitative' />
+            <column caption='medicamentos' datatype='table' name='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1601990031622144]' derivation='None' name='[none:Calculation_1601990031622144:ok]' pivot='key' type='ordinal' />
+            <column aggregation='Sum' caption='Pvp' datatype='real' name='[pvp]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:Calculation_1601990031622144:ok]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]</rows>
+        <cols>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:Calculation_1601990031622144:ok]</cols>
+        <show-full-range>
+          <column>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[Pvp (agrupación) 2]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{749B5635-A683-408B-B96B-141A50B76162}' />
+    </worksheet>
+    <worksheet name='Hoja 3'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Total de medicamentos&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='medicamentos (schezofrenia)' name='federated.0jnjxuk0ekf28y1fvaiih0pggbmd' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0jnjxuk0ekf28y1fvaiih0pggbmd'>
+            <column-instance column='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]' pivot='key' type='quantitative' />
+            <column caption='medicamentos' datatype='table' name='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontsize='36'>Total de medicamentos:</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#4e79a7' fontsize='36'><![CDATA[<[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]>]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{0935F6B0-24B8-47CF-90B1-06F811336C30}' />
+    </worksheet>
+    <worksheet name='Hoja 4'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{D1104E0D-79A5-4432-847F-DF8A00F71D0D}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' name='Hoja 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{C071B5C7-B082-4EA3-ABE5-DCBEFDA6AC9E}' />
+    </window>
+    <window class='worksheet' name='Hoja 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='100'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='174'>
+            <card pane-specification-id='0' param='[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:Calculation_1601990031622144:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3B4956FC-7F34-465F-81A3-EA89E38ECA4A}' />
+    </window>
+    <window class='worksheet' name='Hoja 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D13CBCF6-8C77-4001-880E-A254AFA12B9B}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Hoja 4'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{7158B293-6CD1-43D5-8672-E2BC8CDEF55A}' />
+    </window>
+  </windows>
+</workbook>

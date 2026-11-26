@@ -1,0 +1,960 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20263.26.1110.1931                               -->
+<workbook _.fcp.WorkbookFingerprinting.true...author-id='2157d74de78489ec97c991852a98d8515e8b64c0d3ab0a16318eb5f124be9dc0' _.fcp.WorkbookFingerprinting.true...creator-author-id='2157d74de78489ec97c991852a98d8515e8b64c0d3ab0a16318eb5f124be9dc0' _.fcp.WorkbookFingerprinting.true...creator-license-type='paid' _.fcp.WorkbookFingerprinting.true...creator-machine-id='2157d74de78489ec97c991852a98d8515e8b64c0d3ab0a16318eb5f124be9dc0' _.fcp.WorkbookFingerprinting.true...license-type='paid' _.fcp.WorkbookFingerprinting.true...machine-id='2157d74de78489ec97c991852a98d8515e8b64c0d3ab0a16318eb5f124be9dc0' original-version='18.1' source-build='2026.3.1 (20263.26.1110.1931)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+    <_.fcp.WorkbookFingerprinting.true...WorkbookFingerprinting />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='medicamentos (schezofrenia)' inline='true' name='federated.0jnjxuk0ekf28y1fvaiih0pggbmd' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='localhost' name='mysql.1qezvye01359yg134zvdu0frm3uy'>
+            <connection class='mysql' dbname='schezofrenia' odbc-native-protocol='' one-time-sql='' port='3306' server='localhost' source-charset='' username='root' />
+          </named-connection>
+        </named-connections>
+        <relation connection='mysql.1qezvye01359yg134zvdu0frm3uy' name='medicamentos' table='[medicamentos]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>nregistro</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[nregistro]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>nregistro</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>20</width>
+            <contains-null>false</contains-null>
+            <collation charset='296' flag='3' name='LROOT_S1' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>labcomercializador</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[labcomercializador]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>labcomercializador</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>262140</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='296' flag='3' name='LROOT_S1' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>forma_farmaceutica_simplificada</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[forma_farmaceutica_simplificada]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>forma_farmaceutica_simplificada</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>262140</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='296' flag='3' name='LROOT_S1' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>vias_administracion</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[vias_administracion]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>vias_administracion</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>262140</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='296' flag='3' name='LROOT_S1' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>comercializado</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[comercializado]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>comercializado</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>generico</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[generico]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>generico</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_excipientes</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[num_excipientes]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>num_excipientes</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>palabras_seccion_4_4</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[palabras_seccion_4_4]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>palabras_seccion_4_4</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_tablas</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[num_tablas]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>num_tablas</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_grave</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[num_grave]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>num_grave</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pvp</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[pvp]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>pvp</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <scale>2</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DECIMAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>antiguedad_anios</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[antiguedad_anios]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>antiguedad_anios</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>revocado</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[revocado]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>revocado</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tld_unknown</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[tld_unknown]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>tld_unknown</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pa_base</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[pa_base]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>pa_base</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>262140</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation charset='296' flag='3' name='LROOT_S1' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dosis_mg</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[dosis_mg]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>dosis_mg</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>dosis_es_concentracion</remote-name>
+            <remote-type>16</remote-type>
+            <local-name>[dosis_es_concentracion]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>dosis_es_concentracion</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>3</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TINYINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_STINYINT&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cluster</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[cluster]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>cluster</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>precio_de_referencia</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[precio_de_referencia]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>precio_de_referencia</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <scale>2</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DECIMAL&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_NUMERIC&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>num_principios_activos</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[num_principios_activos]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>num_principios_activos</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>fecha_carga</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[fecha_carga]</local-name>
+            <parent-name>[medicamentos]</parent-name>
+            <remote-alias>fecha_carga</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+            <object-id>[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='Sum' caption='Tramo PVP' datatype='real' name='[Calculation_1601990031622144]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='ROUND(POWER(10, FLOOR(LOG([pvp]) * 4) / 4), 0)' />
+      </column>
+      <column caption='Pvp agrupacion' datatype='integer' name='[Pvp (agrupación) 2]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='1' formula='[pvp]' peg='0' size='30' />
+      </column>
+      <column caption='Pvp (agrupación)' datatype='integer' name='[Pvp (agrupación)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='2' formula='[pvp]' peg='0' size='200' />
+      </column>
+      <column caption='medicamentos' datatype='table' name='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' role='measure' type='quantitative' />
+      <column caption='Antiguedad Anios' datatype='real' name='[antiguedad_anios]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Cluster' datatype='integer' name='[cluster]' role='dimension' type='ordinal' />
+      <column caption='Comercializado' datatype='integer' name='[comercializado]' role='measure' type='quantitative' />
+      <column caption='Dosis Es Concentracion' datatype='integer' name='[dosis_es_concentracion]' role='measure' type='quantitative' />
+      <column caption='Dosis Mg' datatype='real' name='[dosis_mg]' role='measure' type='quantitative' />
+      <column caption='Fecha Carga' datatype='datetime' name='[fecha_carga]' role='dimension' type='ordinal' />
+      <column caption='Forma Farmaceutica Simplificada' datatype='string' name='[forma_farmaceutica_simplificada]' role='dimension' type='nominal' />
+      <column caption='Generico' datatype='integer' name='[generico]' role='measure' type='quantitative' />
+      <column caption='Labcomercializador' datatype='string' name='[labcomercializador]' role='dimension' type='nominal' />
+      <column caption='Nregistro' datatype='string' name='[nregistro]' role='dimension' type='nominal' />
+      <column caption='Num Excipientes' datatype='integer' name='[num_excipientes]' role='measure' type='quantitative' />
+      <column caption='Num Grave' datatype='integer' name='[num_grave]' role='measure' type='quantitative' />
+      <column caption='Num Principios Activos' datatype='integer' name='[num_principios_activos]' role='measure' type='quantitative' />
+      <column caption='Num Tablas' datatype='integer' name='[num_tablas]' role='measure' type='quantitative' />
+      <column caption='Pa Base' datatype='string' name='[pa_base]' role='dimension' type='nominal' />
+      <column caption='Palabras Seccion 4 4' datatype='integer' name='[palabras_seccion_4_4]' role='measure' type='quantitative' />
+      <column caption='Precio De Referencia' datatype='real' name='[precio_de_referencia]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Pvp' datatype='real' name='[pvp]' role='dimension' type='quantitative' />
+      <column caption='Revocado' datatype='integer' name='[revocado]' role='measure' type='quantitative' />
+      <column caption='Tld Unknown' datatype='integer' name='[tld_unknown]' role='measure' type='quantitative' />
+      <column caption='Vias Administracion' datatype='string' name='[vias_administracion]' role='dimension' type='nominal' />
+      <column-instance column='[Calculation_1601990031622144]' derivation='None' name='[none:Calculation_1601990031622144:ok]' pivot='key' type='ordinal' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Calculation_1601990031622144:ok]' type='palette'>
+            <map to='#499894'>
+              <bucket>100.0</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>1.0</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>10.0</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>1000.0</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>177.82794100389228</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>17.782794100389228</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>56.0</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>1.7782794100389228</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>18.0</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>31.622776601683793</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>2.0</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>3.0</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>32.0</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>178.0</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>316.0</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>316.22776601683796</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>56.234132519034908</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>3.1622776601683795</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>6.0</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>562.0</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>562.34132519034904</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>5.6234132519034912</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;España&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='nregistro' />
+        <field-sort-custom-order field='labcomercializador' />
+        <field-sort-custom-order field='forma_farmaceutica_simplificada' />
+        <field-sort-custom-order field='vias_administracion' />
+        <field-sort-custom-order field='comercializado' />
+        <field-sort-custom-order field='generico' />
+        <field-sort-custom-order field='num_excipientes' />
+        <field-sort-custom-order field='palabras_seccion_4_4' />
+        <field-sort-custom-order field='num_tablas' />
+        <field-sort-custom-order field='num_grave' />
+        <field-sort-custom-order field='pvp' />
+        <field-sort-custom-order field='Calculation_1601990031622144' />
+        <field-sort-custom-order field='antiguedad_anios' />
+        <field-sort-custom-order field='revocado' />
+        <field-sort-custom-order field='tld_unknown' />
+        <field-sort-custom-order field='pa_base' />
+        <field-sort-custom-order field='dosis_mg' />
+        <field-sort-custom-order field='dosis_es_concentracion' />
+        <field-sort-custom-order field='cluster' />
+        <field-sort-custom-order field='precio_de_referencia' />
+        <field-sort-custom-order field='num_principios_activos' />
+        <field-sort-custom-order field='fecha_carga' />
+        <field-sort-custom-order field='Geometry (generated)' />
+        <field-sort-custom-order field='Latitude (generated)' />
+        <field-sort-custom-order field='Longitude (generated)' />
+        <field-sort-custom-order field='Pvp (agrupación)' />
+        <field-sort-custom-order field='Pvp (agrupación) 2' />
+        <field-sort-custom-order field=':Measure Names' />
+        <field-sort-custom-order field='Multiple Values' />
+      </field-sort-info>
+      <object-graph>
+        <objects>
+          <object caption='medicamentos' id='medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5'>
+            <properties context=''>
+              <relation connection='mysql.1qezvye01359yg134zvdu0frm3uy' name='medicamentos' table='[medicamentos]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Hoja 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='medicamentos (schezofrenia)' name='federated.0jnjxuk0ekf28y1fvaiih0pggbmd' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0jnjxuk0ekf28y1fvaiih0pggbmd'>
+            <column-instance column='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]' pivot='key' type='quantitative' />
+            <column caption='medicamentos' datatype='table' name='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' role='measure' type='quantitative' />
+            <column aggregation='Sum' caption='Cluster' datatype='integer' name='[cluster]' role='dimension' type='ordinal' />
+            <column-instance column='[cluster]' derivation='None' name='[none:cluster:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]</rows>
+        <cols>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:cluster:ok]</cols>
+      </table>
+      <simple-id uuid='{2083B357-00F5-406E-9B57-D27D042C478E}' />
+    </worksheet>
+    <worksheet name='Hoja 2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='medicamentos (schezofrenia)' name='federated.0jnjxuk0ekf28y1fvaiih0pggbmd' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0jnjxuk0ekf28y1fvaiih0pggbmd'>
+            <column aggregation='Sum' caption='Tramo PVP' datatype='real' name='[Calculation_1601990031622144]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='ROUND(POWER(10, FLOOR(LOG([pvp]) * 4) / 4), 0)' />
+            </column>
+            <column-instance column='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]' pivot='key' type='quantitative' />
+            <column caption='medicamentos' datatype='table' name='[__tableau_internal_object_id__].[medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1601990031622144]' derivation='None' name='[none:Calculation_1601990031622144:ok]' pivot='key' type='ordinal' />
+            <column aggregation='Sum' caption='Pvp' datatype='real' name='[pvp]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:Calculation_1601990031622144:ok]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[__tableau_internal_object_id__].[cnt:medicamentos_4D7D50BB872D415CBE3D7D646ED88FC5:qk]</rows>
+        <cols>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:Calculation_1601990031622144:ok]</cols>
+        <show-full-range>
+          <column>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[Pvp (agrupación) 2]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{749B5635-A683-408B-B96B-141A50B76162}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' name='Hoja 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:cluster:ok]</field>
+            <field>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:nregistro:nk]</field>
+            <field>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:pa_base:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{C071B5C7-B082-4EA3-ABE5-DCBEFDA6AC9E}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Hoja 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='100'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='174'>
+            <card pane-specification-id='0' param='[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:Calculation_1601990031622144:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:Calculation_1601990031622144:ok]</field>
+            <field>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:Pvp (agrupación) 2:ok]</field>
+            <field>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:Pvp (agrupación):ok]</field>
+            <field>[federated.0jnjxuk0ekf28y1fvaiih0pggbmd].[none:pvp:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{3B4956FC-7F34-465F-81A3-EA89E38ECA4A}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Hoja 1' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Hoja 2' width='192'>
+      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
+      RU5ErkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>

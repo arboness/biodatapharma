@@ -29,6 +29,7 @@ SENTENCIAS = [
         cluster                          INTEGER,
         precio_de_referencia             NUMERIC(10, 2),
         num_principios_activos           INTEGER,
+        url_foto_materiales              TEXT,
         fecha_carga                      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (nregistro, fecha_carga)
     )
