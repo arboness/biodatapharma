@@ -9,3 +9,18 @@ wheels/
 # Virtual environments
 .venv
 .env
+.env.*
+
+
+# Logs
+*.log
+logs/
+
+# Tableau
+*.hyper       
+
+# IDE / sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
