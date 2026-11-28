@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW schezofrenia.vw_medicamentos_kpis AS
+CREATE OR REPLACE VIEW vw_medicamentos_kpis AS
 SELECT
     medicamentos.*,
     ROUND((pvp - precio_de_referencia) / NULLIF(precio_de_referencia, 0) * 100, 2) AS desviacion_de_precio,
@@ -9,4 +9,4 @@ SELECT
         PARTITION BY forma_farmaceutica_simplificada
         ORDER BY pvp DESC
     ) AS ranking_precio_por_forma
-FROM schezofrenia.medicamentos;
+FROM medicamentos;

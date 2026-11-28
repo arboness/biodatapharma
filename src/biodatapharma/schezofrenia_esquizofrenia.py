@@ -5,6 +5,10 @@ import sys
 from biodatapharma import hu1_3, hu4, hu5, hu6_create_table, hu6_kpis, hu6_load
 from biodatapharma.constants import LOG_FILE
 
+from pathlib import Path
+
+Path(LOG_FILE).parent.mkdir(parents=True, exist_ok=True)
+
 logging.basicConfig(
     filename=LOG_FILE,
     level=logging.INFO,
